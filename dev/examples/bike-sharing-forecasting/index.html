@@ -5678,7 +5678,9 @@
     <span class="k">break</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>{&#39;clouds&#39;: 75,
+<div class="codehilite"><pre><span></span><code>Downloading https://maxhalford.github.io/files/datasets/toulouse_bikes.zip (1.12 MB)
+Uncompressing into /home/runner/river_data/Bikes
+{&#39;clouds&#39;: 75,
  &#39;description&#39;: &#39;light rain&#39;,
  &#39;humidity&#39;: 81,
  &#39;moment&#39;: datetime.datetime(2016, 4, 1, 0, 0, 7),
@@ -5792,7 +5794,59 @@ MAE: 3.933498
 <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">debug_one</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>&#39;0. Input\n--------\nclouds: 0 (int)\ndescription: clear sky (str)\nhumidity: 52 (int)\nmoment: 2016-04-10 19:03:27 (datetime)\npressure: 1,001.00000 (float)\nstation: place-esquirol (str)\ntemperature: 19.00000 (float)\nwind: 7.70000 (float)\n\n1. Transformer union\n--------------------\n    1.0 Select\n    ----------\n    clouds: 0 (int)\n    humidity: 52 (int)\n    pressure: 1,001.00000 (float)\n    temperature: 19.00000 (float)\n    wind: 7.70000 (float)\n\n    1.1 get_hour | target_mean_by_station_and_hour\n    ----------------------------------------------\n    target_mean_by_station_and_hour: 7.97175 (float)\n\nclouds: 0 (int)\nhumidity: 52 (int)\npressure: 1,001.00000 (float)\ntarget_mean_by_station_and_hour: 7.97175 (float)\ntemperature: 19.00000 (float)\nwind: 7.70000 (float)\n\n2. StandardScaler\n-----------------\nclouds: -1.36138 (float)\nhumidity: -1.73083 (float)\npressure: -1.26076 (float)\ntarget_mean_by_station_and_hour: 0.05496 (float)\ntemperature: 1.76232 (float)\nwind: 1.45841 (float)\n\n3. LinearRegression\n-------------------\nName                              Value      Weight     Contribution  \n                      Intercept    1.00000    6.58252        6.58252  \n                    temperature    1.76232    2.47030        4.35345  \n                         clouds   -1.36138   -1.92255        2.61732  \ntarget_mean_by_station_and_hour    0.05496    0.54167        0.02977  \n                           wind    1.45841   -0.77720       -1.13348  \n                       humidity   -1.73083    1.44921       -2.50833  \n                       pressure   -1.26076    3.78529       -4.77234  \n\nPrediction: 5.16889&#39;
+<div class="codehilite"><pre><span></span><code>0. Input
+--------
+clouds: 0 (int)
+description: clear sky (str)
+humidity: 52 (int)
+moment: 2016-04-10 19:03:27 (datetime)
+pressure: 1,001.00000 (float)
+station: place-esquirol (str)
+temperature: 19.00000 (float)
+wind: 7.70000 (float)
+
+1. Transformer union
+--------------------
+    1.0 Select
+    ----------
+    clouds: 0 (int)
+    humidity: 52 (int)
+    pressure: 1,001.00000 (float)
+    temperature: 19.00000 (float)
+    wind: 7.70000 (float)
+
+    1.1 get_hour | target_mean_by_station_and_hour
+    ----------------------------------------------
+    target_mean_by_station_and_hour: 7.97175 (float)
+
+clouds: 0 (int)
+humidity: 52 (int)
+pressure: 1,001.00000 (float)
+target_mean_by_station_and_hour: 7.97175 (float)
+temperature: 19.00000 (float)
+wind: 7.70000 (float)
+
+2. StandardScaler
+-----------------
+clouds: -1.36138 (float)
+humidity: -1.73083 (float)
+pressure: -1.26076 (float)
+target_mean_by_station_and_hour: 0.05496 (float)
+temperature: 1.76232 (float)
+wind: 1.45841 (float)
+
+3. LinearRegression
+-------------------
+Name                              Value      Weight     Contribution  
+                      Intercept    1.00000    6.58252        6.58252  
+                    temperature    1.76232    2.47030        4.35345  
+                         clouds   -1.36138   -1.92255        2.61732  
+target_mean_by_station_and_hour    0.05496    0.54167        0.02977  
+                           wind    1.45841   -0.77720       -1.13348  
+                       humidity   -1.73083    1.44921       -2.50833  
+                       pressure   -1.26076    3.78529       -4.77234
+
+Prediction: 5.16889
 </code></pre></div>
 
 <p>The <code>debug_one</code> method shows what happens to an input set of features, step by step.</p>

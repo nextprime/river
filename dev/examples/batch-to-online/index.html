@@ -5923,21 +5923,6 @@ True variance: 123625.903
     <span class="n">scaler</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">learn_one</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>---------------------------------------------------------------------------
-
-ModuleNotFoundError                       Traceback (most recent call last)
-
-&lt;ipython-input-1-09b51bee327e&gt; in &lt;module&gt;
-----&gt; 1 from river import preprocessing
-      2 
-      3 scaler = preprocessing.StandardScaler()
-      4 
-      5 for xi, yi in stream.iter_sklearn_dataset(datasets.load_breast_cancer()):
-
-
-ModuleNotFoundError: No module named &#39;river&#39;
-</code></pre></div>
-
 <p>Now that we are scaling the data, we can start doing some actual machine learning. We're going to implement an online linear regression task. Because all the data isn't available at once, we are obliged to do what is called <em>stochastic gradient descent</em>, which is a popular research topic and has a lot of variants. SGD is commonly used to train neural networks. The idea is that at each step we compute the loss between the target prediction and the truth. We then calculate the gradient, which is simply a set of derivatives with respect to each weight from the linear regression. Once we have obtained the gradient, we can update the weights by moving them in the opposite direction of the gradient. The amount by which the weights are moved typically depends on a <em>learning rate</em>, which is typically set by the user. Different optimizers have different ways of managing the weight update, and some handle the learning rate implicitly. Online linear regression can be done in <code>river</code> with the <code>LinearRegression</code> class from the <code>linear_model</code> module. We'll be using plain and simple SGD using the <code>SGD</code> optimizer from the <code>optim</code> module. During training we'll measure the squared error between the truth and the predictions.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">linear_model</span>
 <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">optim</span>
