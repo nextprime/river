@@ -5728,7 +5728,7 @@
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong>x</strong>     (<em>dict</em>)    </li>
-<li><strong>y</strong>     (<em>Union[str, int]</em>)    </li>
+<li><strong>y</strong>     (<em>Union[bool, str, int]</em>)    </li>
 <li><strong>kwargs</strong>    </li>
 </ul>
 <p><strong>Returns</strong></p>
@@ -5749,7 +5749,7 @@
 <li><strong>x</strong>     (<em>dict</em>)    </li>
 </ul>
 <p><strong>Returns</strong></p>
-<p><em>typing.Union[str, int]</em>:     The predicted label.</p>
+<p><em>typing.Union[bool, str, int]</em>:     The predicted label.</p>
 </details>
 <details class="- note"><summary>predict_proba_many</summary><p>Predict the outcome probabilities for each given sample.</p>
 <p><strong>Parameters</strong></p>
@@ -5765,7 +5765,7 @@
 <li><strong>x</strong>     (<em>dict</em>)    </li>
 </ul>
 <p><strong>Returns</strong></p>
-<p><em>Dict</em>:     A dictionary that associates a probability which each label.</p>
+<p><em>typing.Dict[typing.Union[bool, str, int], float]</em>:     A dictionary that associates a probability which each label.</p>
 </details>
                 
               

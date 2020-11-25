@@ -5855,10 +5855,10 @@
 <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.761761, RMSE: 0.960662 – 0:00:04 – 665.49 KB
-[50,000] MAE: 0.751922, RMSE: 0.949783 – 0:00:09 – 765.59 KB
-[75,000] MAE: 0.749822, RMSE: 0.948634 – 0:00:14 – 875.16 KB
-[100,000] MAE: 0.748393, RMSE: 0.94776 – 0:00:20 – 975.87 KB
+<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.761761, RMSE: 0.960662 – 0:00:04 – 1.15 MB
+[50,000] MAE: 0.751922, RMSE: 0.949783 – 0:00:09 – 1.34 MB
+[75,000] MAE: 0.749822, RMSE: 0.948634 – 0:00:14 – 1.56 MB
+[100,000] MAE: 0.748393, RMSE: 0.94776 – 0:00:19 – 1.75 MB
 </code></pre></div>
 
 <p>Both MAE are very close to each other (0.7486 vs 0.7485) showing that we almost reproduced <a href="https://online-ml.github.io/api/reco/BiasedMF/">reco.BiasedMF</a> algorithm. The cost is a naturally slower running time as FM implementation offers more flexibility.</p>
@@ -5940,10 +5940,10 @@ y = 4.0
 <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.759744, RMSE: 0.961052 – 0:00:12 – 728.56 KB
-[50,000] MAE: 0.751301, RMSE: 0.951378 – 0:00:25 – 838.6 KB
-[75,000] MAE: 0.750461, RMSE: 0.951439 – 0:00:38 – 959.04 KB
-[100,000] MAE: 0.750049, RMSE: 0.951509 – 0:00:51 – 1.04 MB
+<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.760059, RMSE: 0.961415 – 0:00:12 – 1.42 MB
+[50,000] MAE: 0.751429, RMSE: 0.951504 – 0:00:24 – 1.66 MB
+[75,000] MAE: 0.750568, RMSE: 0.951592 – 0:00:37 – 1.93 MB
+[100,000] MAE: 0.75018, RMSE: 0.951622 – 0:00:49 – 2.18 MB
 </code></pre></div>
 
 <p>Note that using more variables involves factorizing a larger latent space, then increasing the number of latent factors <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> often helps capturing more information.</p>
@@ -5993,10 +5993,10 @@ y = 4.0
 <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.761115, RMSE: 0.96211 – 0:01:06 – 1.38 MB
-[50,000] MAE: 0.751996, RMSE: 0.951863 – 0:02:12 – 1.62 MB
-[75,000] MAE: 0.751175, RMSE: 0.951983 – 0:03:17 – 1.88 MB
-[100,000] MAE: 0.75096, RMSE: 0.952434 – 0:04:23 – 2.12 MB
+<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.761379, RMSE: 0.96214 – 0:01:07 – 2.59 MB
+[50,000] MAE: 0.751998, RMSE: 0.951589 – 0:02:13 – 3.05 MB
+[75,000] MAE: 0.750994, RMSE: 0.951616 – 0:03:19 – 3.56 MB
+[100,000] MAE: 0.750849, RMSE: 0.952142 – 0:04:25 – 4.03 MB
 </code></pre></div>
 
 <p>As said previously, high-order interactions are often hard to estimate due to too much sparsity, that's why we won't spend too much time here.</p>
@@ -6043,10 +6043,10 @@ y = 4.0
 <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.757534, RMSE: 0.958273 – 0:00:19 – 1.79 MB
-[50,000] MAE: 0.749191, RMSE: 0.947901 – 0:00:38 – 2.1 MB
-[75,000] MAE: 0.749005, RMSE: 0.94872 – 0:00:57 – 2.45 MB
-[100,000] MAE: 0.749346, RMSE: 0.949657 – 0:01:16 – 2.76 MB
+<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.758339, RMSE: 0.959047 – 0:00:18 – 3 MB
+[50,000] MAE: 0.749833, RMSE: 0.948531 – 0:00:36 – 3.54 MB
+[75,000] MAE: 0.749631, RMSE: 0.949418 – 0:00:55 – 4.14 MB
+[100,000] MAE: 0.749776, RMSE: 0.950131 – 0:01:13 – 4.69 MB
 </code></pre></div>
 
 <p>Note that FFM usually needs to learn smaller number of latent factors <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> than FM as each latent vector only deals with one field.</p>
@@ -6091,10 +6091,10 @@ y = 4.0
 <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.760908, RMSE: 0.96191 – 0:00:26 – 679.19 KB
-[50,000] MAE: 0.75363, RMSE: 0.95256 – 0:00:52 – 779.29 KB
-[75,000] MAE: 0.75363, RMSE: 0.953275 – 0:01:18 – 888.85 KB
-[100,000] MAE: 0.753521, RMSE: 0.953671 – 0:01:44 – 0.97 MB
+<div class="codehilite"><pre><span></span><code>[25,000] MAE: 0.761435, RMSE: 0.962211 – 0:00:23 – 1.17 MB
+[50,000] MAE: 0.754063, RMSE: 0.953248 – 0:00:47 – 1.36 MB
+[75,000] MAE: 0.754729, RMSE: 0.95507 – 0:01:11 – 1.58 MB
+[100,000] MAE: 0.755697, RMSE: 0.956542 – 0:01:35 – 1.77 MB
 </code></pre></div>
                 
               

@@ -5769,7 +5769,7 @@
                 
                 <h1 id="quantile">Quantile<a class="headerlink" href="#quantile" title="Permanent link">&para;</a></h1>
 <p>Running quantile.</p>
-<p>Uses the P-square algorithm. The code is inspired by LiveStat's implementation <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>Uses the P² algorithm, which is also known as the "Piecewise-Parabolic quantile estimator". The code is inspired by LiveStat's implementation <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -5828,10 +5828,13 @@
 <hr />
 <ol>
 <li id="fn:1">
-<p><a href="https://www.cse.wustl.edu/~jain/papers/ftp/psqr.pdf">The P2 Algorithm for Dynamic Univariateal Computing Calculation of Quantiles and Editor Histograms Without Storing Observations</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="https://www.cse.wustl.edu/~jain/papers/ftp/psqr.pdf">The P² Algorithm for Dynamic Univariateal Computing Calculation of Quantiles and Editor Histograms Without Storing Observations</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p><a href="https://github.com/cxxr/LiveStats">LiveStats</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://aakinshin.net/posts/p2-quantile-estimator/">P² quantile estimator: estimating the median without storing values</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
