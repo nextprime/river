@@ -332,6 +332,10 @@
      <lastmod>2021-01-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://riverml.xyz/api/expert/EpsilonGreedyRegressor/</loc>
+     <lastmod>2021-01-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://riverml.xyz/api/expert/StackingClassifier/</loc>
      <lastmod>2021-01-04</lastmod>
      <changefreq>daily</changefreq>
@@ -341,6 +345,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://riverml.xyz/api/expert/SuccessiveHalvingRegressor/</loc>
+     <lastmod>2021-01-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://riverml.xyz/api/expert/UCBRegressor/</loc>
      <lastmod>2021-01-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1281,6 +1289,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://riverml.xyz/api/utils/numpy2dict/</loc>
+     <lastmod>2021-01-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://riverml.xyz/api/utils/math/argmax/</loc>
      <lastmod>2021-01-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
