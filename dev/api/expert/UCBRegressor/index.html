@@ -6448,7 +6448,10 @@
                 
                 <h1 id="ucbregressor">UCBRegressor<a class="headerlink" href="#ucbregressor" title="Permanent link">&para;</a></h1>
 <p>Upper Confidence Bound bandit for regression.</p>
-<p>The class offers 2 implementations of UCB: - UCB1 from <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, when the parameter delta has value None - UCB(delta) from <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, when the parameter delta is in (0, 1) </p>
+<p>The class offers 2 implementations of UCB: </p>
+<ul>
+<li>UCB1 from <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, when the parameter delta has value None - UCB(delta) from <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, when the parameter delta is in (0, 1) </li>
+</ul>
 <p>For this bandit, rewards are supposed to be 1-subgaussian (see Lattimore and Szepesvári, chapter 6, p. 91) hence the use of the <code>StandardScaler</code> and <code>MaxAbsScaler</code> as <code>reward_scaler</code>.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <ul>
@@ -6489,7 +6492,8 @@
 </li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<p>Let's use <code>UCBRegressor</code> to select the best learning rate for a linear regression model. First, we define the grid of models:</p>
+<p>Let's use <code>UCBRegressor</code> to select the best learning rate for a linear regression model. First,
+we define the grid of models:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">compose</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">linear_model</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">preprocessing</span>
@@ -6497,9 +6501,10 @@
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
 <span class="o">...</span>     <span class="n">compose</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span>
-<span class="o">...</span>     <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">(),</span>
+<span class="o">...</span>         <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">(),</span>
 <span class="o">...</span>         <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">))</span>
-<span class="o">...</span>         <span class="p">)</span> <span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">]</span>
+<span class="o">...</span>     <span class="p">)</span>
+<span class="o">...</span>     <span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">]</span>
 <span class="o">...</span> <span class="p">]</span>
 </code></pre></div>
 <p>We decide to use TrumpApproval dataset:</p>
@@ -6515,12 +6520,22 @@
 <span class="o">...</span>     <span class="n">bandit</span> <span class="o">=</span> <span class="n">bandit</span><span class="o">.</span><span class="n">learn_one</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 <p>We can inspect the number of times (in percentage) each arm has been pulled.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">bandit</span><span class="o">.</span><span class="n">percentage_pulled</span>
-<span class="p">[</span><span class="mf">0.024464831804281346</span><span class="p">,</span> <span class="mf">0.024464831804281346</span><span class="p">,</span> <span class="mf">0.9225280326197758</span><span class="p">,</span> <span class="mf">0.02854230377166157</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">model</span><span class="p">,</span> <span class="n">pct</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bandit</span><span class="o">.</span><span class="n">models</span><span class="p">,</span> <span class="n">bandit</span><span class="o">.</span><span class="n">percentage_pulled</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">lr</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="s2">&quot;LinearRegression&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">learning_rate</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">lr</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">pct</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="mf">1.0e-04</span> <span class="err">—</span> <span class="mf">2.45</span><span class="o">%</span>
+<span class="mf">1.0e-03</span> <span class="err">—</span> <span class="mf">2.45</span><span class="o">%</span>
+<span class="mf">1.0e-02</span> <span class="err">—</span> <span class="mf">92.25</span><span class="o">%</span>
+<span class="mf">1.0e-01</span> <span class="err">—</span> <span class="mf">2.85</span><span class="o">%</span>
 </code></pre></div>
-<p>The average reward of each model can be accessed via:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">bandit</span><span class="o">.</span><span class="n">average_reward</span>
-<span class="p">[</span><span class="mf">6.7341093388411285e-06</span><span class="p">,</span> <span class="mf">0.00015362069542226522</span><span class="p">,</span> <span class="mf">0.7389630522422052</span><span class="p">,</span> <span class="mf">0.04955919506031605</span><span class="p">]</span>
+<p>The average reward of each model is also available:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">model</span><span class="p">,</span> <span class="n">avg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bandit</span><span class="o">.</span><span class="n">models</span><span class="p">,</span> <span class="n">bandit</span><span class="o">.</span><span class="n">average_reward</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">lr</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="s2">&quot;LinearRegression&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">learning_rate</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">lr</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="mf">1.0e-04</span> <span class="err">—</span> <span class="mf">0.00</span>
+<span class="mf">1.0e-03</span> <span class="err">—</span> <span class="mf">0.00</span>
+<span class="mf">1.0e-02</span> <span class="err">—</span> <span class="mf">0.74</span>
+<span class="mf">1.0e-01</span> <span class="err">—</span> <span class="mf">0.05</span>
 </code></pre></div>
 <p>We can also select the best model (the one with the highest average reward).</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">best_model</span> <span class="o">=</span> <span class="n">bandit</span><span class="o">.</span><span class="n">best_model</span>
