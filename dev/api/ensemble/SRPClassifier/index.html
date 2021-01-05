@@ -6464,7 +6464,7 @@
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p><strong>model</strong> – defaults to <code>HoeffdingTreeClassifier</code></p>
+<p><strong>model</strong> (<em><a href="../../base/Classifier">base.Classifier</a></em>) – defaults to <code>None</code></p>
 <p>The base estimator.</p>
 </li>
 <li>
@@ -6484,11 +6484,11 @@
 <p>Lambda value for resampling.</p>
 </li>
 <li>
-<p><strong>drift_detector</strong> (<em>Union[<a href="../../base/DriftDetector">base.DriftDetector</a>, NoneType]</em>) – defaults to <code>ADWIN</code></p>
+<p><strong>drift_detector</strong> (<em><a href="../../base/DriftDetector">base.DriftDetector</a></em>) – defaults to <code>None</code></p>
 <p>Drift detector. If <code>None</code>, disables concept drift detection and the background learner.</p>
 </li>
 <li>
-<p><strong>warning_detector</strong> (<em><a href="../../base/DriftDetector">base.DriftDetector</a></em>) – defaults to <code>ADWIN</code></p>
+<p><strong>warning_detector</strong> (<em><a href="../../base/DriftDetector">base.DriftDetector</a></em>) – defaults to <code>None</code></p>
 <p>Warning detector. If <code>None</code>, disables the background learner and ensemble members are reset if drift is detected.</p>
 </li>
 <li>
@@ -6504,7 +6504,7 @@
 <p>If <code>int</code>, <code>seed</code> is used to seed the random number generator; If <code>RandomState</code>, <code>seed</code> is the random number generator; If <code>None</code>, the random number generator is the <code>RandomState</code> instance used by <code>np.random</code>.</p>
 </li>
 <li>
-<p><strong>metric</strong> (<em>river.metrics.base.MultiClassMetric</em>) – defaults to <code>Accuracy: 0.00%</code></p>
+<p><strong>metric</strong> (<em>river.metrics.base.MultiClassMetric</em>) – defaults to <code>None</code></p>
 <p>Metric to track members performance within the ensemble.</p>
 </li>
 </ul>
@@ -6524,7 +6524,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">progressive_val_score</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span>
-<span class="n">Accuracy</span><span class="p">:</span> <span class="mf">76.88</span><span class="o">%</span>
+<span class="n">Accuracy</span><span class="p">:</span> <span class="mf">76.78</span><span class="o">%</span>
 </code></pre></div>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <details class="- note"><summary>clone</summary><p>Return a fresh estimator with the same parameters.</p>
