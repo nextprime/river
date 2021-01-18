@@ -6143,7 +6143,7 @@
 <p>Metric used to track trees performance within the ensemble. Depending, on the configuration, this metric is also used to weight predictions from the members of the ensemble.</p>
 </li>
 <li>
-<p><strong>disable_weighted_vote</strong> – defaults to <code>False</code></p>
+<p><strong>disable_weighted_vote</strong> – defaults to <code>True</code></p>
 <p>If <code>True</code>, disables the weighted vote prediction, i.e. does not assign weights to individual tree's predictions and uses the arithmetic mean instead. Otherwise will use the <code>metric</code> value to weight predictions.</p>
 </li>
 <li>
@@ -6239,7 +6239,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">MAE</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">progressive_val_score</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span>
-<span class="n">MAE</span><span class="p">:</span> <span class="mf">23.320694</span>
+<span class="n">MAE</span><span class="p">:</span> <span class="mf">1.870913</span>
 </code></pre></div>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <details class="- note"><summary>clone</summary><p>Return a fresh estimator with the same parameters.</p>
