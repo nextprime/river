@@ -2452,6 +2452,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2776,6 +2788,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2824,8 +2848,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -3006,6 +3078,18 @@
     <li class="md-nav__item">
       <a href="../../metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5120,18 +5204,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6088,40 +6160,40 @@
 <p>Drift Detection Method.</p>
 <p>DDM (Drift Detection Method) is a concept change detection method based on the PAC learning model premise, that the learner's error rate will decrease as the number of analysed samples increase, as long as the data distribution is stationary. </p>
 <p>If the algorithm detects an increase in the error rate, that surpasses a calculated threshold, either change is detected or the algorithm will warn the user that change may occur in the near future, which is called the warning zone. </p>
-<p>The detection threshold is calculated in function of two statistics, obtained when <span><span class="MathJax_Preview">(p_i + s_i)</span><script type="math/tex">(p_i + s_i)</script></span> is minimum: </p>
+<p>The detection threshold is calculated in function of two statistics, obtained when <span class="arithmatex">\((p_i + s_i)\)</span> is minimum: </p>
 <ul>
 <li>
-<p><span><span class="MathJax_Preview">p_{min}</span><script type="math/tex">p_{min}</script></span>: The minimum recorded error rate. </p>
+<p><span class="arithmatex">\(p_{min}\)</span>: The minimum recorded error rate. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">s_{min}</span><script type="math/tex">s_{min}</script></span>: The minimum recorded standard deviation. </p>
+<p><span class="arithmatex">\(s_{min}\)</span>: The minimum recorded standard deviation. </p>
 </li>
 </ul>
-<p>At instant <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>, the detection algorithm uses: </p>
+<p>At instant <span class="arithmatex">\(i\)</span>, the detection algorithm uses: </p>
 <ul>
 <li>
-<p><span><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span>: The error rate at instant <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>. </p>
+<p><span class="arithmatex">\(p_i\)</span>: The error rate at instant <span class="arithmatex">\(i\)</span>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">s_i</span><script type="math/tex">s_i</script></span>: The standard deviation at instant <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>. </p>
+<p><span class="arithmatex">\(s_i\)</span>: The standard deviation at instant <span class="arithmatex">\(i\)</span>. </p>
 </li>
 </ul>
 <p>The conditions for entering the warning zone and detecting change are as follows: </p>
 <ul>
 <li>
-<p>if <span><span class="MathJax_Preview">p_i + s_i \geq p_{min} + 2 * s_{min}</span><script type="math/tex">p_i + s_i \geq p_{min} + 2 * s_{min}</script></span> -&gt; Warning zone </p>
+<p>if <span class="arithmatex">\(p_i + s_i \geq p_{min} + 2 * s_{min}\)</span> -&gt; Warning zone </p>
 </li>
 <li>
-<p>if <span><span class="MathJax_Preview">p_i + s_i \geq p_{min} + 3 * s_{min}</span><script type="math/tex">p_i + s_i \geq p_{min} + 3 * s_{min}</script></span> -&gt; Change detected </p>
+<p>if <span class="arithmatex">\(p_i + s_i \geq p_{min} + 3 * s_{min}\)</span> -&gt; Change detected </p>
 </li>
 </ul>
-<p><strong>Input:</strong> <code>value</code> must be a binary signal, where 0 indicates error. For example, if a classifier's prediction <span><span class="MathJax_Preview">y'</span><script type="math/tex">y'</script></span> is right or wrong w.r.t the true target label <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>: </p>
+<p><strong>Input:</strong> <code>value</code> must be a binary signal, where 0 indicates error. For example, if a classifier's prediction <span class="arithmatex">\(y'\)</span> is right or wrong w.r.t the true target label <span class="arithmatex">\(y\)</span>: </p>
 <ul>
 <li>
-<p>0: Correct, <span><span class="MathJax_Preview">y=y'</span><script type="math/tex">y=y'</script></span> </p>
+<p>0: Correct, <span class="arithmatex">\(y=y'\)</span> </p>
 </li>
 <li>
-<p>1: Error, <span><span class="MathJax_Preview">y \neq y'</span><script type="math/tex">y \neq y'</script></span></p>
+<p>1: Error, <span class="arithmatex">\(y \neq y'\)</span></p>
 </li>
 </ul>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
@@ -6262,7 +6334,11 @@
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../js/version-select.js"></script>
       

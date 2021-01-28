@@ -2384,6 +2384,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2708,6 +2720,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2756,8 +2780,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2938,6 +3010,18 @@
     <li class="md-nav__item">
       <a href="../../metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5120,18 +5204,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6090,68 +6162,68 @@
 <p>The features are generated using the following expressions: </p>
 <ul>
 <li>
-<p><span><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span>: uniformly distributed over <code>[-5, 5]</code>. </p>
+<p><span class="arithmatex">\(x_1\)</span>: uniformly distributed over <code>[-5, 5]</code>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span>: uniformly distributed over <code>[-15, -10]</code>. </p>
+<p><span class="arithmatex">\(x_2\)</span>: uniformly distributed over <code>[-15, -10]</code>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_3</span><script type="math/tex">x_3</script></span>: </p>
+<p><span class="arithmatex">\(x_3\)</span>: </p>
 <ul>
 <li>
-<p>if <span><span class="MathJax_Preview">x_1 &gt; 0</span><script type="math/tex">x_1 > 0</script></span>, <span><span class="MathJax_Preview">x_3 \leftarrow</span><script type="math/tex">x_3 \leftarrow</script></span> <code>'green'</code> </p>
+<p>if <span class="arithmatex">\(x_1 &gt; 0\)</span>, <span class="arithmatex">\(x_3 \leftarrow\)</span> <code>'green'</code> </p>
 </li>
 <li>
-<p>else <span><span class="MathJax_Preview">x_3 \leftarrow</span><script type="math/tex">x_3 \leftarrow</script></span> <code>'red'</code> with probability <span><span class="MathJax_Preview">0.4</span><script type="math/tex">0.4</script></span> and <span><span class="MathJax_Preview">x_3 \leftarrow</span><script type="math/tex">x_3 \leftarrow</script></span> <code>'brown'</code>     with probability <span><span class="MathJax_Preview">0.6</span><script type="math/tex">0.6</script></span>. </p>
+<p>else <span class="arithmatex">\(x_3 \leftarrow\)</span> <code>'red'</code> with probability <span class="arithmatex">\(0.4\)</span> and <span class="arithmatex">\(x_3 \leftarrow\)</span> <code>'brown'</code>     with probability <span class="arithmatex">\(0.6\)</span>. </p>
 </li>
 </ul>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_4</span><script type="math/tex">x_4</script></span>: </p>
+<p><span class="arithmatex">\(x_4\)</span>: </p>
 <ul>
 <li>
-<p>if <span><span class="MathJax_Preview">x_3 =</span><script type="math/tex">x_3 =</script></span> <code>'green'</code>, <span><span class="MathJax_Preview">x_4 \leftarrow x_1 + 2 x_2</span><script type="math/tex">x_4 \leftarrow x_1 + 2 x_2</script></span> </p>
+<p>if <span class="arithmatex">\(x_3 =\)</span> <code>'green'</code>, <span class="arithmatex">\(x_4 \leftarrow x_1 + 2 x_2\)</span> </p>
 </li>
 <li>
-<p>else <span><span class="MathJax_Preview">x_4 = \frac{x_1}{2}</span><script type="math/tex">x_4 = \frac{x_1}{2}</script></span> with probability <span><span class="MathJax_Preview">0.3</span><script type="math/tex">0.3</script></span> and <span><span class="MathJax_Preview">x_4 = \frac{x_2}{2}</span><script type="math/tex">x_4 = \frac{x_2}{2}</script></span>     with probability <span><span class="MathJax_Preview">0.7</span><script type="math/tex">0.7</script></span>. </p>
+<p>else <span class="arithmatex">\(x_4 = \frac{x_1}{2}\)</span> with probability <span class="arithmatex">\(0.3\)</span> and <span class="arithmatex">\(x_4 = \frac{x_2}{2}\)</span>     with probability <span class="arithmatex">\(0.7\)</span>. </p>
 </li>
 </ul>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_5</span><script type="math/tex">x_5</script></span>: uniformly distributed over <code>[-1, 1]</code>. </p>
+<p><span class="arithmatex">\(x_5\)</span>: uniformly distributed over <code>[-1, 1]</code>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_6 \leftarrow x_4 \times \epsilon</span><script type="math/tex">x_6 \leftarrow x_4 \times \epsilon</script></span>, where <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> is uniformly distributed over <code>[0, 5]</code>. </p>
+<p><span class="arithmatex">\(x_6 \leftarrow x_4 \times \epsilon\)</span>, where <span class="arithmatex">\(\epsilon\)</span> is uniformly distributed over <code>[0, 5]</code>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_7</span><script type="math/tex">x_7</script></span>: <code>'yes'</code> with probability <span><span class="MathJax_Preview">0.3</span><script type="math/tex">0.3</script></span>, and <code>'no'</code> with probability <span><span class="MathJax_Preview">0.7</span><script type="math/tex">0.7</script></span>. </p>
+<p><span class="arithmatex">\(x_7\)</span>: <code>'yes'</code> with probability <span class="arithmatex">\(0.3\)</span>, and <code>'no'</code> with probability <span class="arithmatex">\(0.7\)</span>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_8</span><script type="math/tex">x_8</script></span>: <code>'normal'</code> if <span><span class="MathJax_Preview">x_5 &lt; 0.5</span><script type="math/tex">x_5 < 0.5</script></span> else <code>'large'</code>. </p>
+<p><span class="arithmatex">\(x_8\)</span>: <code>'normal'</code> if <span class="arithmatex">\(x_5 &lt; 0.5\)</span> else <code>'large'</code>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_9</span><script type="math/tex">x_9</script></span>: uniformly distributed over <code>[100, 500]</code>. </p>
+<p><span class="arithmatex">\(x_9\)</span>: uniformly distributed over <code>[100, 500]</code>. </p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">x_{10}</span><script type="math/tex">x_{10}</script></span>: uniformly distributed integer over the interval <code>[1000, 1200]</code>. </p>
+<p><span class="arithmatex">\(x_{10}\)</span>: uniformly distributed integer over the interval <code>[1000, 1200]</code>. </p>
 </li>
 </ul>
 <p>The target value is generated using the following rules: </p>
 <ul>
 <li>
-<p>if <span><span class="MathJax_Preview">x_2 &gt; 2</span><script type="math/tex">x_2 > 2</script></span>, <span><span class="MathJax_Preview">y \leftarrow 35 - 0.5 x_4</span><script type="math/tex">y \leftarrow 35 - 0.5 x_4</script></span> </p>
+<p>if <span class="arithmatex">\(x_2 &gt; 2\)</span>, <span class="arithmatex">\(y \leftarrow 35 - 0.5 x_4\)</span> </p>
 </li>
 <li>
-<p>else if <span><span class="MathJax_Preview">-2 \le x_4 \le 2</span><script type="math/tex">-2 \le x_4 \le 2</script></span>, <span><span class="MathJax_Preview">y \leftarrow 10 - 2 x_1</span><script type="math/tex">y \leftarrow 10 - 2 x_1</script></span> </p>
+<p>else if <span class="arithmatex">\(-2 \le x_4 \le 2\)</span>, <span class="arithmatex">\(y \leftarrow 10 - 2 x_1\)</span> </p>
 </li>
 <li>
-<p>else if <span><span class="MathJax_Preview">x_7 =</span><script type="math/tex">x_7 =</script></span> <code>'yes'</code>, <span><span class="MathJax_Preview">y \leftarrow 3 - \frac{x_1}{x_4}</span><script type="math/tex">y \leftarrow 3 - \frac{x_1}{x_4}</script></span> </p>
+<p>else if <span class="arithmatex">\(x_7 =\)</span> <code>'yes'</code>, <span class="arithmatex">\(y \leftarrow 3 - \frac{x_1}{x_4}\)</span> </p>
 </li>
 <li>
-<p>else if <span><span class="MathJax_Preview">x_8 =</span><script type="math/tex">x_8 =</script></span> <code>'normal'</code>, <span><span class="MathJax_Preview">y \leftarrow x_6 + x_1</span><script type="math/tex">y \leftarrow x_6 + x_1</script></span> </p>
+<p>else if <span class="arithmatex">\(x_8 =\)</span> <code>'normal'</code>, <span class="arithmatex">\(y \leftarrow x_6 + x_1\)</span> </p>
 </li>
 <li>
-<p>else <span><span class="MathJax_Preview">y \leftarrow \frac{x_1}{2}</span><script type="math/tex">y \leftarrow \frac{x_1}{2}</script></span>.</p>
+<p>else <span class="arithmatex">\(y \leftarrow \frac{x_1}{2}\)</span>.</p>
 </li>
 </ul>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
@@ -6268,7 +6340,11 @@
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../js/version-select.js"></script>
       

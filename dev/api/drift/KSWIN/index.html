@@ -2459,6 +2459,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2783,6 +2795,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2831,8 +2855,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -3013,6 +3085,18 @@
     <li class="md-nav__item">
       <a href="../../metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5127,18 +5211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6169,23 +6241,18 @@
 on the Kolmogorov-Smirnov (KS) statistical test. KS-test is a statistical test with
 no assumption of underlying data distribution. KSWIN can monitor data or performance
 distributions. Note that the detector accepts one dimensional input as array.</p>
-<p>KSWIN maintains a sliding window <span><span class="MathJax_Preview">\Psi</span><script type="math/tex">\Psi</script></span> of fixed size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> (window_size). The
-last <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> (stat_size) samples of <span><span class="MathJax_Preview">\Psi</span><script type="math/tex">\Psi</script></span> are assumed to represent the last
-concept considered as <span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span>. From the first <span><span class="MathJax_Preview">n-r</span><script type="math/tex">n-r</script></span> samples of <span><span class="MathJax_Preview">\Psi</span><script type="math/tex">\Psi</script></span>,
-<span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> samples are uniformly drawn, representing an approximated last concept <span><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span>.</p>
-<p>The KS-test is performed on the windows <span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span> and <span><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> of the same size. KS
--test compares the distance of the empirical cumulative data distribution <span><span class="MathJax_Preview">dist(R,W)</span><script type="math/tex">dist(R,W)</script></span>.</p>
+<p>KSWIN maintains a sliding window <span class="arithmatex">\(\Psi\)</span> of fixed size <span class="arithmatex">\(n\)</span> (window_size). The
+last <span class="arithmatex">\(r\)</span> (stat_size) samples of <span class="arithmatex">\(\Psi\)</span> are assumed to represent the last
+concept considered as <span class="arithmatex">\(R\)</span>. From the first <span class="arithmatex">\(n-r\)</span> samples of <span class="arithmatex">\(\Psi\)</span>,
+<span class="arithmatex">\(r\)</span> samples are uniformly drawn, representing an approximated last concept <span class="arithmatex">\(W\)</span>.</p>
+<p>The KS-test is performed on the windows <span class="arithmatex">\(R\)</span> and <span class="arithmatex">\(W\)</span> of the same size. KS
+-test compares the distance of the empirical cumulative data distribution <span class="arithmatex">\(dist(R,W)\)</span>.</p>
 <p>A concept drift is detected by KSWIN if:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 dist(R,W) &gt; \sqrt{-\frac{ln\alpha}{r}}
-</div>
-<script type="math/tex; mode=display">
-dist(R,W) > \sqrt{-\frac{ln\alpha}{r}}
-</script>
-</div>
-<p>The difference in empirical data distributions between the windows <span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span> and <span><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> is too large
-since <span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span> and <span><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> come from the same distribution.</p>
+\]</div>
+<p>The difference in empirical data distributions between the windows <span class="arithmatex">\(R\)</span> and <span class="arithmatex">\(W\)</span> is too large
+since <span class="arithmatex">\(R\)</span> and <span class="arithmatex">\(W\)</span> come from the same distribution.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <div class="footnote">
 <hr />
@@ -6266,7 +6333,11 @@ since <span><span class="MathJax_Preview">R</span><script type="math/tex">R</scr
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../js/version-select.js"></script>
       

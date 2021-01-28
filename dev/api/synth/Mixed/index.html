@@ -2384,6 +2384,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2708,6 +2720,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2756,8 +2780,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2938,6 +3010,18 @@
     <li class="md-nav__item">
       <a href="../../metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5127,18 +5211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6101,10 +6173,10 @@
                 <h1 id="mixed">Mixed<a class="headerlink" href="#mixed" title="Permanent link">&para;</a></h1>
 <p>Mixed data stream generator.</p>
 <p>This generator is an implementation of a data stream with abrupt concept drift and boolean noise-free examples as described in <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
-<p>It has four relevant attributes, two boolean attributes <span><span class="MathJax_Preview">v, w</span><script type="math/tex">v, w</script></span> and two numeric attributes <span><span class="MathJax_Preview">x, y</span><script type="math/tex">x, y</script></span> uniformly distributed from 0 to 1. The examples are labeled depending on the classification function chosen from below. </p>
+<p>It has four relevant attributes, two boolean attributes <span class="arithmatex">\(v, w\)</span> and two numeric attributes <span class="arithmatex">\(x, y\)</span> uniformly distributed from 0 to 1. The examples are labeled depending on the classification function chosen from below. </p>
 <ul>
 <li>
-<p><code>function 0</code>:   if <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> and <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> are true or <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> and <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> are true or <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> and <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> are true   then 0 else 1, where <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> is <span><span class="MathJax_Preview">y &lt; 0.5 + 0.3 sin(3 \pi  x)</span><script type="math/tex">y < 0.5 + 0.3 sin(3 \pi  x)</script></span> </p>
+<p><code>function 0</code>:   if <span class="arithmatex">\(v\)</span> and <span class="arithmatex">\(w\)</span> are true or <span class="arithmatex">\(v\)</span> and <span class="arithmatex">\(z\)</span> are true or <span class="arithmatex">\(w\)</span> and <span class="arithmatex">\(z\)</span> are true   then 0 else 1, where <span class="arithmatex">\(z\)</span> is <span class="arithmatex">\(y &lt; 0.5 + 0.3 sin(3 \pi  x)\)</span> </p>
 </li>
 <li>
 <p><code>function 1</code>:    The opposite of <code>function 0</code>. </p>
@@ -6247,7 +6319,11 @@ binary-classification task).</p>
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../js/version-select.js"></script>
       

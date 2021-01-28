@@ -2384,6 +2384,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2708,6 +2720,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2756,8 +2780,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2938,6 +3010,18 @@
     <li class="md-nav__item">
       <a href="../../../metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5101,18 +5185,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6047,15 +6119,9 @@
                 <h1 id="squared">Squared<a class="headerlink" href="#squared" title="Permanent link">&para;</a></h1>
 <p>Squared loss, also known as the L2 loss.</p>
 <p>Mathematically, it is defined as </p>
-<div>
-<div class="MathJax_Preview">L = (p_i - y_i) ^ 2</div>
-<script type="math/tex; mode=display">L = (p_i - y_i) ^ 2</script>
-</div>
-<p>It's gradient w.r.t. to <span><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span> is </p>
-<div>
-<div class="MathJax_Preview">\frac{\partial L}{\partial p_i} = 2       imes (p_i - y_i)</div>
-<script type="math/tex; mode=display">\frac{\partial L}{\partial p_i} = 2       imes (p_i - y_i)</script>
-</div>
+<div class="arithmatex">\[L = (p_i - y_i) ^ 2\]</div>
+<p>It's gradient w.r.t. to <span class="arithmatex">\(p_i\)</span> is </p>
+<div class="arithmatex">\[\frac{\partial L}{\partial p_i} = 2       imes (p_i - y_i)\]</div>
 <p>One thing to note is that this convention is consistent with Vowpal Wabbit and PyTorch, but not with scikit-learn. Indeed, scikit-learn divides the loss by 2, making the 2 disappear in the gradient.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">optim</span>
@@ -6170,7 +6236,11 @@
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../../js/version-select.js"></script>
       

@@ -2382,6 +2382,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2706,6 +2718,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2754,8 +2778,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2936,6 +3008,18 @@
     <li class="md-nav__item">
       <a href="../../api/metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5050,18 +5134,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../api/tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6074,9 +6146,9 @@
 <p>Multiple drift detection methods have been proposed. The goal of a drift detector is to signal an alarm in the presence of drift. A good drift detector maximizes the number of true positives while keeping the number of false positives to a minimum. It must also be resource-wise efficient to work in the context of infinite data streams.</p>
 <p>For this example, we will generate a synthetic data stream by concatenating 3 distributions of 1000 samples each:</p>
 <ul>
-<li><span><span class="MathJax_Preview">dist_a</span><script type="math/tex">dist_a</script></span>: <span><span class="MathJax_Preview">\mu=0.8</span><script type="math/tex">\mu=0.8</script></span>, <span><span class="MathJax_Preview">\sigma=0.05</span><script type="math/tex">\sigma=0.05</script></span></li>
-<li><span><span class="MathJax_Preview">dist_b</span><script type="math/tex">dist_b</script></span>: <span><span class="MathJax_Preview">\mu=0.4</span><script type="math/tex">\mu=0.4</script></span>, <span><span class="MathJax_Preview">\sigma=0.02</span><script type="math/tex">\sigma=0.02</script></span></li>
-<li><span><span class="MathJax_Preview">dist_c</span><script type="math/tex">dist_c</script></span>: <span><span class="MathJax_Preview">\mu=0.6</span><script type="math/tex">\mu=0.6</script></span>, <span><span class="MathJax_Preview">\sigma=0.1</span><script type="math/tex">\sigma=0.1</script></span>.</li>
+<li><span class="arithmatex">\(dist_a\)</span>: <span class="arithmatex">\(\mu=0.8\)</span>, <span class="arithmatex">\(\sigma=0.05\)</span></li>
+<li><span class="arithmatex">\(dist_b\)</span>: <span class="arithmatex">\(\mu=0.4\)</span>, <span class="arithmatex">\(\sigma=0.02\)</span></li>
+<li><span class="arithmatex">\(dist_c\)</span>: <span class="arithmatex">\(\mu=0.6\)</span>, <span class="arithmatex">\(\sigma=0.1\)</span>.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -6210,7 +6282,11 @@ Change detected at index 2079
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../js/version-select.js"></script>
       

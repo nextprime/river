@@ -2386,6 +2386,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2776,6 +2788,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2824,8 +2848,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -3006,6 +3078,18 @@
     <li class="md-nav__item">
       <a href="../WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5120,18 +5204,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6087,11 +6159,8 @@
                 <h1 id="kappam">KappaM<a class="headerlink" href="#kappam" title="Permanent link">&para;</a></h1>
 <p>Kappa-M score.</p>
 <p>The Kappa-M statistic compares performance with the majority class classifier. It is defined as </p>
-<div>
-<div class="MathJax_Preview"> \kappa_{m} = (p_o - p_e) / (1 - p_e) </div>
-<script type="math/tex; mode=display"> \kappa_{m} = (p_o - p_e) / (1 - p_e) </script>
-</div>
-<p>where <span><span class="MathJax_Preview">p_o</span><script type="math/tex">p_o</script></span> is the empirical probability of agreement on the label assigned to any sample (prequential accuracy), and <span><span class="MathJax_Preview">p_e</span><script type="math/tex">p_e</script></span> is the prequential accuracy of the <code>majority classifier</code>.</p>
+<div class="arithmatex">\[ \kappa_{m} = (p_o - p_e) / (1 - p_e) \]</div>
+<p>where <span class="arithmatex">\(p_o\)</span> is the empirical probability of agreement on the label assigned to any sample (prequential accuracy), and <span class="arithmatex">\(p_e\)</span> is the prequential accuracy of the <code>majority classifier</code>.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -6228,7 +6297,11 @@
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../js/version-select.js"></script>
       

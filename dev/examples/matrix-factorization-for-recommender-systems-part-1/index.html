@@ -2382,6 +2382,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2706,6 +2718,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2754,8 +2778,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2936,6 +3008,18 @@
     <li class="md-nav__item">
       <a href="../../api/metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5050,18 +5134,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../api/tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6111,8 +6183,7 @@
 <li>Spotify (suggesting music)</li>
 </ul>
 <p>Social recommendation from graph (mostly used by social networks) are not covered in <code>river</code>. We focus on the general case, item recommendation. This problem can be represented with the user-item matrix:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \normalsize
 \begin{matrix}
     &amp; \begin{matrix} _1 &amp; _\cdots &amp; _\cdots &amp; _\cdots &amp; _I \end{matrix} \\
@@ -6125,36 +6196,15 @@
             {\color{Red} ?} &amp; {\color{Red} ?} &amp; \cdots &amp; 5 &amp; {\color{Red} ?}
         \end{bmatrix}
 \end{matrix}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\begin{matrix}
-    & \begin{matrix} _1 & _\cdots & _\cdots & _\cdots & _I \end{matrix} \\
-    \begin{matrix} _1 \\ _\vdots \\ _\vdots \\ _\vdots \\ _U \end{matrix} & 
-        \begin{bmatrix}
-            {\color{Red} ?} & 2 & \cdots & {\color{Red} ?} & {\color{Red} ?} \\
-            {\color{Red} ?} & {\color{Red} ?} & \cdots & {\color{Red} ?} & 4.5 \\
-            \vdots & \ddots & \ddots & \ddots & \vdots \\
-            3 & {\color{Red} ?} & \cdots & {\color{Red} ?} & {\color{Red} ?} \\
-            {\color{Red} ?} & {\color{Red} ?} & \cdots & 5 & {\color{Red} ?}
-        \end{bmatrix}
-\end{matrix}
-</script>
-</div>
-<p>Where <span><span class="MathJax_Preview">U</span><script type="math/tex">U</script></span> and <span><span class="MathJax_Preview">I</span><script type="math/tex">I</script></span> are the number of user and item of the system, respectively. A matrix entry represents a user's preference for an item, it can be a rating, a like or dislike, etc. Because of the huge number of users and items compared to the number of observed entries, those matrices are very sparsed (usually less than 1% filled).</p>
+\]</div>
+<p>Where <span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(I\)</span> are the number of user and item of the system, respectively. A matrix entry represents a user's preference for an item, it can be a rating, a like or dislike, etc. Because of the huge number of users and items compared to the number of observed entries, those matrices are very sparsed (usually less than 1% filled).</p>
 <p><a href="https://en.wikipedia.org/wiki/Matrix_factorization_(recommender_systems)">Matrix Factorization (MF)</a> is a class of <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">collaborative filtering</a> algorithms derived from <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">Singular Value Decomposition (SVD)</a>. MF strength lies in its capacity to able to model high cardinality categorical variables interactions. This subfield boomed during the famous <a href="https://en.wikipedia.org/wiki/Netflix_Prize">Netflix Prize</a> contest in 2006, when numerous novel variants has been invented and became popular thanks to their attractive accuracy and scalability.</p>
 <p>MF approach seeks to fill the user-item matrix considering the problem as a <a href="https://en.wikipedia.org/wiki/Matrix_completion">matrix completion</a> one. MF core idea assume a latent model learning its own representation of the users and the items in a lower latent dimensional space by factorizing the observed parts of the matrix.</p>
-<p>A factorized user or item is represented as a vector <span><span class="MathJax_Preview">\mathbf{v}_u</span><script type="math/tex">\mathbf{v}_u</script></span> or <span><span class="MathJax_Preview">\mathbf{v}_i</span><script type="math/tex">\mathbf{v}_i</script></span> composed of <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> latent factors, with <span><span class="MathJax_Preview">k &lt;&lt; U, I</span><script type="math/tex">k << U, I</script></span>. Those learnt latent variables represent, for an item the various aspects describing it, and for a user its interests in terms of those aspects. The model then assume a user's choice or fondness is composed of a sum of preferences about the various aspects of the concerned item. This sum being the dot product between the latent vectors of a given user-item pair:</p>
-<div>
-<div class="MathJax_Preview">
+<p>A factorized user or item is represented as a vector <span class="arithmatex">\(\mathbf{v}_u\)</span> or <span class="arithmatex">\(\mathbf{v}_i\)</span> composed of <span class="arithmatex">\(k\)</span> latent factors, with <span class="arithmatex">\(k &lt;&lt; U, I\)</span>. Those learnt latent variables represent, for an item the various aspects describing it, and for a user its interests in terms of those aspects. The model then assume a user's choice or fondness is composed of a sum of preferences about the various aspects of the concerned item. This sum being the dot product between the latent vectors of a given user-item pair:</p>
+<div class="arithmatex">\[
 \normalsize
 \langle \mathbf{v}_u, \mathbf{v}_i \rangle = \sum_{f=1}^{k} \mathbf{v}_{u, f} \cdot \mathbf{v}_{i, f}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\langle \mathbf{v}_u, \mathbf{v}_i \rangle = \sum_{f=1}^{k} \mathbf{v}_{u, f} \cdot \mathbf{v}_{i, f}
-</script>
-</div>
+\]</div>
 <p>MF models weights are learnt in an online fashion, often with stochastic gradient descent as it provides relatively fast running time and good accuracy. There is a great and widely popular library named <a href="http://surpriselib.com/">surprise</a> that implements MF models (and others) but in contrast with <code>river</code> doesn't follow a pure online philosophy (all the data have to be loaded in memory and the API doesn't allow you to update your model with new data).</p>
 <p><strong>Notes:</strong></p>
 <ul>
@@ -6218,16 +6268,10 @@ y = 4.0
 </code></pre></div>
 <h2 id="baseline-model">Baseline model<a class="headerlink" href="#baseline-model" title="Permanent link">&para;</a></h2>
 <p>Now we can do machine learning and explore available models in <a href="https://online-ml.github.io/api/overview/#reco">river.reco</a> module starting with the baseline model. It extends our naive prediction by adding to the global running mean two bias terms characterizing the user and the item discrepancy from the general tendency. The model equation is defined as:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = \bar{y} + bu_{u} + bi_{i}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = \bar{y} + bu_{u} + bi_{i}
-</script>
-</div>
+\]</div>
 <p>This baseline model can be viewed as a linear regression where the intercept is replaced by the target running mean with the users and the items one hot encoded.</p>
 <p>All machine learning models in <code>river</code> expect dicts as input with feature names as keys and feature values as values. Specifically, models from <code>river.reco</code> expect a <code>'user'</code> and an <code>'item'</code> entries without any type constraint on their values (i.e. can be strings or numbers), e.g.:</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">{</span>
@@ -6262,16 +6306,10 @@ y = 4.0
 <p>We won two tenth of MAE compared to our naive prediction (0.7546 vs 0.9421) meaning that significant information has been learnt by the model.</p>
 <h2 id="funk-matrix-factorization-funkmf">Funk Matrix Factorization (FunkMF)<a class="headerlink" href="#funk-matrix-factorization-funkmf" title="Permanent link">&para;</a></h2>
 <p>It's the pure form of matrix factorization consisting of only learning the users and items latent representations as discussed in introduction. Simon Funk popularized its <a href="https://sifter.org/simon/journal/20061211.html">stochastic gradient descent optimization</a> in 2006 during the Netflix Prize. The model equation is defined as:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = \langle \mathbf{v}_u, \mathbf{v}_i \rangle
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = \langle \mathbf{v}_u, \mathbf{v}_i \rangle
-</script>
-</div>
+\]</div>
 <p><strong>Note:</strong> FunkMF is sometimes referred as <a href="https://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">Probabilistic Matrix Factorization</a> which is an extended probabilistic version.</p>
 <div class="highlight"><pre><span></span><code><span class="n">funk_mf_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;n_factors&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -6296,16 +6334,10 @@ y = 4.0
 <p>Results are equivalent to our naive prediction (0.9448 vs 0.9421). By only focusing on the users preferences and the items characteristics, the model is limited in his ability to capture different views of the problem. Despite its poor performance alone, this algorithm is quite useful combined in other models or when we need to build dense representations for other tasks.</p>
 <h2 id="biased-matrix-factorization-biasedmf">Biased Matrix Factorization (BiasedMF)<a class="headerlink" href="#biased-matrix-factorization-biasedmf" title="Permanent link">&para;</a></h2>
 <p>It's the combination of the Baseline model and FunkMF. The model equation is defined as:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = \bar{y} + bu_{u} + bi_{i} + \langle \mathbf{v}_u, \mathbf{v}_i \rangle
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = \bar{y} + bu_{u} + bi_{i} + \langle \mathbf{v}_u, \mathbf{v}_i \rangle
-</script>
-</div>
+\]</div>
 <p><strong>Note:</strong> <em>Biased Matrix Factorization</em> name is used by some people but some others refer to it by <em>SVD</em> or <em>Funk SVD</em>. It's the case of Yehuda Koren and Robert Bell in <a href="https://www.cse.iitk.ac.in/users/nsrivast/HCC/Recommender_systems_handbook.pdf">Recommender Systems Handbook</a> (Chapter 5 <em>Advances in Collaborative Filtering</em>) and of <code>surprise</code> library. Nevertheless, <em>SVD</em> could be confused with the original <em>Singular Value Decomposition</em> from which it's derived from, and <em>Funk SVD</em> could also be misleading because of the biased part of the model equation which doesn't come from Simon Funk's work. For those reasons, we chose to side with <em>Biased Matrix Factorization</em> which fits more naturally to it.</p>
 <div class="highlight"><pre><span></span><code><span class="n">biased_mf_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;n_factors&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -6408,7 +6440,11 @@ y = 4.0
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../js/version-select.js"></script>
       

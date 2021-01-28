@@ -2445,6 +2445,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2769,6 +2781,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2817,8 +2841,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2999,6 +3071,18 @@
     <li class="md-nav__item">
       <a href="../../metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5113,18 +5197,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6074,24 +6146,24 @@
 <p>Early Drift Detection Method.</p>
 <p>EDDM (Early Drift Detection Method) aims to improve the detection rate of gradual concept drift in DDM, while keeping a good performance against abrupt concept drift. </p>
 <p>This method works by keeping track of the average distance between two errors instead of only the error rate. For this, it is necessary to keep track of the running average distance and the running standard deviation, as well as the maximum distance and the maximum standard deviation. </p>
-<p>The algorithm works similarly to the DDM algorithm, by keeping track of statistics only. It works with the running average distance (<span><span class="MathJax_Preview">p_i'</span><script type="math/tex">p_i'</script></span>) and the running standard deviation (<span><span class="MathJax_Preview">s_i'</span><script type="math/tex">s_i'</script></span>), as well as <span><span class="MathJax_Preview">p'_{max}</span><script type="math/tex">p'_{max}</script></span> and <span><span class="MathJax_Preview">s'_{max}</span><script type="math/tex">s'_{max}</script></span>, which are the values of <span><span class="MathJax_Preview">p_i'</span><script type="math/tex">p_i'</script></span> and <span><span class="MathJax_Preview">s_i'</span><script type="math/tex">s_i'</script></span> when <span><span class="MathJax_Preview">(p_i' + 2 * s_i')</span><script type="math/tex">(p_i' + 2 * s_i')</script></span> reaches its maximum. </p>
+<p>The algorithm works similarly to the DDM algorithm, by keeping track of statistics only. It works with the running average distance (<span class="arithmatex">\(p_i'\)</span>) and the running standard deviation (<span class="arithmatex">\(s_i'\)</span>), as well as <span class="arithmatex">\(p'_{max}\)</span> and <span class="arithmatex">\(s'_{max}\)</span>, which are the values of <span class="arithmatex">\(p_i'\)</span> and <span class="arithmatex">\(s_i'\)</span> when <span class="arithmatex">\((p_i' + 2 * s_i')\)</span> reaches its maximum. </p>
 <p>Like DDM, there are two threshold values that define the borderline between no change, warning zone, and drift detected. These are as follows: </p>
 <ul>
 <li>
-<p>if <span><span class="MathJax_Preview">(p_i' + 2 * s_i')/(p'_{max} + 2 * s'_{max}) &lt; \alpha</span><script type="math/tex">(p_i' + 2 * s_i')/(p'_{max} + 2 * s'_{max}) < \alpha</script></span> -&gt; Warning zone </p>
+<p>if <span class="arithmatex">\((p_i' + 2 * s_i')/(p'_{max} + 2 * s'_{max}) &lt; \alpha\)</span> -&gt; Warning zone </p>
 </li>
 <li>
-<p>if <span><span class="MathJax_Preview">(p_i' + 2 * s_i')/(p'_{max} + 2 * s'_{max}) &lt; \beta</span><script type="math/tex">(p_i' + 2 * s_i')/(p'_{max} + 2 * s'_{max}) < \beta</script></span> -&gt; Change detected </p>
+<p>if <span class="arithmatex">\((p_i' + 2 * s_i')/(p'_{max} + 2 * s'_{max}) &lt; \beta\)</span> -&gt; Change detected </p>
 </li>
 </ul>
-<p><span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> and <span><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> are set to 0.95 and 0.9, respectively. </p>
-<p><strong>Input:</strong> <code>value</code> must be a binary signal, where 0 indicates error. For example, if a classifier's prediction <span><span class="MathJax_Preview">y'</span><script type="math/tex">y'</script></span> is right or wrong w.r.t the true target label <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>: </p>
+<p><span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span> are set to 0.95 and 0.9, respectively. </p>
+<p><strong>Input:</strong> <code>value</code> must be a binary signal, where 0 indicates error. For example, if a classifier's prediction <span class="arithmatex">\(y'\)</span> is right or wrong w.r.t the true target label <span class="arithmatex">\(y\)</span>: </p>
 <ul>
 <li>
-<p>0: Correct, <span><span class="MathJax_Preview">y=y'</span><script type="math/tex">y=y'</script></span> </p>
+<p>0: Correct, <span class="arithmatex">\(y=y'\)</span> </p>
 </li>
 <li>
-<p>1: Error, <span><span class="MathJax_Preview">y \neq y'</span><script type="math/tex">y \neq y'</script></span></p>
+<p>1: Error, <span class="arithmatex">\(y \neq y'\)</span></p>
 </li>
 </ul>
 <h2 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h2>
@@ -6229,7 +6301,11 @@
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../js/version-select.js"></script>
       

@@ -2382,6 +2382,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2706,6 +2718,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2754,8 +2778,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2936,6 +3008,18 @@
     <li class="md-nav__item">
       <a href="../../api/metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5050,18 +5134,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../api/tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -5985,7 +6057,7 @@
                 <h1 id="handling-uncertainty-with-quantile-regression">Handling uncertainty with quantile regression<a class="headerlink" href="#handling-uncertainty-with-quantile-regression" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 </code></pre></div>
-<p><a href="https://www.wikiwand.com/en/Quantile_regression">Quantile regression</a> is useful when you're not so much interested in the accuracy of your model, but rather you want your model to be good at ranking observations correctly. The typical way to perform quantile regression is to use a special loss function, namely the quantile loss. The quantile loss takes a parameter, <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> (alpha), which indicates which quantile the model should be targeting. In the case of <span><span class="MathJax_Preview">\alpha = 0.5</span><script type="math/tex">\alpha = 0.5</script></span>, then this is equivalent to asking the model to predict the median value of the target, and not the most likely value which would be the mean. </p>
+<p><a href="https://www.wikiwand.com/en/Quantile_regression">Quantile regression</a> is useful when you're not so much interested in the accuracy of your model, but rather you want your model to be good at ranking observations correctly. The typical way to perform quantile regression is to use a special loss function, namely the quantile loss. The quantile loss takes a parameter, <span class="arithmatex">\(\alpha\)</span> (alpha), which indicates which quantile the model should be targeting. In the case of <span class="arithmatex">\(\alpha = 0.5\)</span>, then this is equivalent to asking the model to predict the median value of the target, and not the most likely value which would be the mean. </p>
 <p>A nice thing we can do with quantile regression is to produce a prediction interval for each prediction. Indeed, if we predict the lower and upper quantiles of the target then we will be able to obtain a "trust region" in between which the true value is likely to belong. Of course, the likeliness will depend on the chosen quantiles. For a slightly more detailed explanation see <a href="https://medium.com/the-artificial-impostor/quantile-regression-part-1-e25bdd8d9d43">this</a> blog post.</p>
 <p>As an example, let us take the <a href="../building-a-simple-time-series-model/">simple time series model we built in another notebook</a>. Instead of predicting the mean value of the target distribution, we will predict the 5th, 50th, 95th quantiles. This will require training three separate models, so we will encapsulate the model building logic in a function called <code>make_model</code>. We also have to slightly adapt the training loop, but not by much. Finally, we will draw the prediction interval along with the predictions from for 50th quantile (i.e. the median) and the true values.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">calendar</span>
@@ -6140,7 +6212,11 @@
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../js/version-select.js"></script>
       

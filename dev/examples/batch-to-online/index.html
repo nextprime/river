@@ -2382,6 +2382,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2706,6 +2718,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2754,8 +2778,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2936,6 +3008,18 @@
     <li class="md-nav__item">
       <a href="../../api/metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5050,18 +5134,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../api/tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6057,7 +6129,7 @@
                 <h1 id="from-batch-to-onlinestream">From batch to online/stream<a class="headerlink" href="#from-batch-to-onlinestream" title="Permanent link">&para;</a></h1>
 <h2 id="a-quick-overview-of-batch-learning">A quick overview of batch learning<a class="headerlink" href="#a-quick-overview-of-batch-learning" title="Permanent link">&para;</a></h2>
 <p>If you've already delved into machine learning, then you shouldn't have any difficulty in getting to use incremental learning. If you are somewhat new to machine learning, then do not worry! The point of this notebook in particular is to introduce simple notions. We'll also start to show how <code>river</code> fits in and explain how to use it.</p>
-<p>The whole point of machine learning is to <em>learn from data</em>. In <em>supervised learning</em> you want to learn how to predict a target <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> given a set of features <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>. Meanwhile in an unsupervised learning there is no target, and the goal is rather to identify patterns and trends in the features <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>. At this point most people tend to imagine <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> as a somewhat big table where each row is an observation and each column is a feature, and they would be quite right. Learning from tabular data is part of what's called <em>batch learning</em>, which basically that all of the data is available to our learning algorithm at once. Multiple libraries have been created to handle the batch learning regime, with one of the most prominent being Python's <a href="https://scikit-learn.org/stable/">scikit-learn</a>.</p>
+<p>The whole point of machine learning is to <em>learn from data</em>. In <em>supervised learning</em> you want to learn how to predict a target <span class="arithmatex">\(y\)</span> given a set of features <span class="arithmatex">\(X\)</span>. Meanwhile in an unsupervised learning there is no target, and the goal is rather to identify patterns and trends in the features <span class="arithmatex">\(X\)</span>. At this point most people tend to imagine <span class="arithmatex">\(X\)</span> as a somewhat big table where each row is an observation and each column is a feature, and they would be quite right. Learning from tabular data is part of what's called <em>batch learning</em>, which basically that all of the data is available to our learning algorithm at once. Multiple libraries have been created to handle the batch learning regime, with one of the most prominent being Python's <a href="https://scikit-learn.org/stable/">scikit-learn</a>.</p>
 <p>As a simple example of batch learning let's say we want to learn to predict if a women has breast cancer or not. We'll use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html">breast cancer dataset available with scikit-learn</a>. We'll learn to map a set of features to a binary decision using a <a href="https://www.wikiwand.com/en/Logistic_regression">logistic regression</a>. Like many other models based on numerical weights, logisitc regression is sensitive to the scale of the features. Rescaling the data so that each feature has mean 0 and variance 1 is generally considered good practice. We can apply the rescaling and fit the logistic regression sequentially in an elegant manner using a <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">Pipeline</a>. To measure the performance of the model we'll evaluate the average <a href="https://www.wikiwand.com/en/Receiver_operating_characteristic">ROC AUC score</a> using a 5 fold <a href="https://www.wikiwand.com/en/Cross-validation_(statistics)">cross-validation</a>. </p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
@@ -6158,41 +6230,23 @@
     <span class="k">pass</span>
 </code></pre></div>
 <p>The simple fact that we are getting the data as a stream means that we can't do a lot of things the same way as in a batch setting. For example let's say we want to scale the data so that it has mean 0 and variance 1, as we did earlier. To do so we simply have to subtract the mean of each feature to each value and then divide the result by the standard deviation of the feature. The problem is that we can't possible known the values of the mean and the standard deviation before actually going through all the data! One way to proceed would be to do a first pass over the data to compute the necessary values and then scale the values during a second pass. The problem is that this defeats our purpose, which is to learn by only looking at the data once. Although this might seem rather restrictive, it reaps sizable benefits down the road.</p>
-<p>The way we do feature scaling in <code>river</code> involves computing <em>running statistics</em> (also know as <em>moving statistics</em>). The idea is that we use a data structure that estimates the mean and updates itself when it is provided with a value. The same goes for the variance (and thus the standard deviation). For example, if we denote <span><span class="MathJax_Preview">\mu_t</span><script type="math/tex">\mu_t</script></span> the mean and <span><span class="MathJax_Preview">n_t</span><script type="math/tex">n_t</script></span> the count at any moment <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, then updating the mean can be done as so:</p>
-<div>
-<div class="MathJax_Preview">
+<p>The way we do feature scaling in <code>river</code> involves computing <em>running statistics</em> (also know as <em>moving statistics</em>). The idea is that we use a data structure that estimates the mean and updates itself when it is provided with a value. The same goes for the variance (and thus the standard deviation). For example, if we denote <span class="arithmatex">\(\mu_t\)</span> the mean and <span class="arithmatex">\(n_t\)</span> the count at any moment <span class="arithmatex">\(t\)</span>, then updating the mean can be done as so:</p>
+<div class="arithmatex">\[
 \begin{cases}
 n_{t+1} = n_t + 1 \\
 \mu_{t+1} = \mu_t + \frac{x - \mu_t}{n_{t+1}}
 \end{cases}
-</div>
-<script type="math/tex; mode=display">
-\begin{cases}
-n_{t+1} = n_t + 1 \\
-\mu_{t+1} = \mu_t + \frac{x - \mu_t}{n_{t+1}}
-\end{cases}
-</script>
-</div>
+\]</div>
 <p>Likewise, the running variance can be computed as so:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \begin{cases}
 n_{t+1} = n_t + 1 \\
 \mu_{t+1} = \mu_t + \frac{x - \mu_t}{n_{t+1}} \\
 s_{t+1} = s_t + (x - \mu_t) \times (x - \mu_{t+1}) \\
 \sigma_{t+1} = \frac{s_{t+1}}{n_{t+1}}
 \end{cases}
-</div>
-<script type="math/tex; mode=display">
-\begin{cases}
-n_{t+1} = n_t + 1 \\
-\mu_{t+1} = \mu_t + \frac{x - \mu_t}{n_{t+1}} \\
-s_{t+1} = s_t + (x - \mu_t) \times (x - \mu_{t+1}) \\
-\sigma_{t+1} = \frac{s_{t+1}}{n_{t+1}}
-\end{cases}
-</script>
-</div>
-<p>where <span><span class="MathJax_Preview">s_t</span><script type="math/tex">s_t</script></span> is a running sum of squares and <span><span class="MathJax_Preview">\sigma_t</span><script type="math/tex">\sigma_t</script></span> is the running variance at time <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>. This might seem a tad more involved than the batch algorithms you learn in school, but it is rather elegant. Implementing this in Python is not too difficult. For example let's compute the running mean and variance of the <code>'mean area'</code> variable.</p>
+\]</div>
+<p>where <span class="arithmatex">\(s_t\)</span> is a running sum of squares and <span class="arithmatex">\(\sigma_t\)</span> is the running variance at time <span class="arithmatex">\(t\)</span>. This might seem a tad more involved than the batch algorithms you learn in school, but it is rather elegant. Implementing this in Python is not too difficult. For example let's compute the running mean and variance of the <code>'mean area'</code> variable.</p>
 <div class="highlight"><pre><span></span><code><span class="n">n</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sum_of_squares</span><span class="p">,</span> <span class="n">variance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">stream</span><span class="o">.</span><span class="n">iter_sklearn_dataset</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()):</span>
@@ -6361,7 +6415,11 @@ True variance: 123625.903
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../js/version-select.js"></script>
       

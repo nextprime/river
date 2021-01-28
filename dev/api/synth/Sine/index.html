@@ -2384,6 +2384,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2708,6 +2720,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2756,8 +2780,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2938,6 +3010,18 @@
     <li class="md-nav__item">
       <a href="../../metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5127,18 +5211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6104,13 +6176,13 @@
 <p>It generates up to 4 relevant numerical features, that vary from 0 to 1, where only 2 of them are relevant to the classification task and the other 2 are optionally added by as noise. A classification function is chosen among four options: </p>
 <ol>
 <li>
-<p><code>SINE1</code>. Abrupt concept drift, noise-free examples. It has two relevant    attributes. Each attributes has values uniformly distributed in [0, 1].    In the first context all points below the curve <span><span class="MathJax_Preview">y = sin(x)</span><script type="math/tex">y = sin(x)</script></span> are    classified as positive. </p>
+<p><code>SINE1</code>. Abrupt concept drift, noise-free examples. It has two relevant    attributes. Each attributes has values uniformly distributed in [0, 1].    In the first context all points below the curve <span class="arithmatex">\(y = sin(x)\)</span> are    classified as positive. </p>
 </li>
 <li>
 <p><code>Reversed SINE1</code>. The reversed classification of <code>SINE1</code>. </p>
 </li>
 <li>
-<p><code>SINE2</code>. The same two relevant attributes. The classification function    is <span><span class="MathJax_Preview">y &lt; 0.5 + 0.3 sin(3 \pi  x)</span><script type="math/tex">y < 0.5 + 0.3 sin(3 \pi  x)</script></span>. </p>
+<p><code>SINE2</code>. The same two relevant attributes. The classification function    is <span class="arithmatex">\(y &lt; 0.5 + 0.3 sin(3 \pi  x)\)</span>. </p>
 </li>
 <li>
 <p><code>Reversed SINE2</code>. The reversed classification of <code>SINE2</code>. </p>
@@ -6256,7 +6328,11 @@ two noise features if <code>has_noise</code> is set.</p>
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../js/version-select.js"></script>
       

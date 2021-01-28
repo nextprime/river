@@ -2382,6 +2382,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2706,6 +2718,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2754,8 +2778,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2936,6 +3008,18 @@
     <li class="md-nav__item">
       <a href="../../api/metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5050,18 +5134,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../api/tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6131,11 +6203,8 @@
 <p><img alt="png" src="../building-a-simple-time-series-model_files/building-a-simple-time-series-model_17_0.png" /></p>
 <p>This is starting to look good! Naturally in production we would tune the learning rate, ideally in real-time.</p>
 <p>Before finishing, we're going to introduce a cool feature extraction trick based on <a href="https://www.wikiwand.com/en/Radial_basis_function_kernel">radial basis function kernels</a>. The one-hot encoding we did on the month is a good idea but if you think about it is a bit rigid. Indeed the value of each feature is going to be 0 or 1, depending on the month of each observation. We're basically saying that the month of September is as distant to the month of August as it is to the month of March. Of course this isn't true, and it would be nice if our features would reflect this. To do so we can simply calculate the distance between the month of each observation and all the months in the calendar. Instead of simply computing the distance linearly, we're going to use a so-called <em>Gaussian radial basic function kernel</em>. This is a bit of a mouthful but for us it boils down to a simple formula, which is:</p>
-<div>
-<div class="MathJax_Preview">d(i, j) = exp(-\frac{(i - j)^2}{2\sigma^2})</div>
-<script type="math/tex; mode=display">d(i, j) = exp(-\frac{(i - j)^2}{2\sigma^2})</script>
-</div>
-<p>Intuitively this computes a similarity between two months -- denoted by <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> -- which decreases the further apart they are from each other. The <span><span class="MathJax_Preview">sigma</span><script type="math/tex">sigma</script></span> parameter can be seen as a hyperparameter than can be tuned -- in the following snippet we'll simply ignore it. The thing to take away is that this results in smoother predictions than when using a one-hot encoding scheme, which is often a desirable property. You can also see trick in action <a href="http://www.youtube.com/watch?v=68ABAU_V8qI&amp;t=4m45s">in this nice presentation</a>.</p>
+<div class="arithmatex">\[d(i, j) = exp(-\frac{(i - j)^2}{2\sigma^2})\]</div>
+<p>Intuitively this computes a similarity between two months -- denoted by <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> -- which decreases the further apart they are from each other. The <span class="arithmatex">\(sigma\)</span> parameter can be seen as a hyperparameter than can be tuned -- in the following snippet we'll simply ignore it. The thing to take away is that this results in smoother predictions than when using a one-hot encoding scheme, which is often a desirable property. You can also see trick in action <a href="http://www.youtube.com/watch?v=68ABAU_V8qI&amp;t=4m45s">in this nice presentation</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">def</span> <span class="nf">get_month_distances</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -6250,7 +6319,11 @@
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../js/version-select.js"></script>
       

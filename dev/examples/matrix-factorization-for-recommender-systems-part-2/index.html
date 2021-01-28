@@ -2382,6 +2382,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/BinaryMetric/" class="md-nav__link">
+        BinaryMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/ClassificationMetric/" class="md-nav__link">
         ClassificationMetric
       </a>
@@ -2706,6 +2718,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/Metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MicroF1/" class="md-nav__link">
         MicroF1
       </a>
@@ -2754,8 +2778,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/metrics/MultiClassMetric/" class="md-nav__link">
+        MultiClassMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/metrics/MultiFBeta/" class="md-nav__link">
         MultiFBeta
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiLabelConfusionMatrix/" class="md-nav__link">
+        MultiLabelConfusionMatrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputClassificationMetric/" class="md-nav__link">
+        MultiOutputClassificationMetric
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/MultiOutputRegressionMetric/" class="md-nav__link">
+        MultiOutputRegressionMetric
       </a>
     </li>
   
@@ -2936,6 +3008,18 @@
     <li class="md-nav__item">
       <a href="../../api/metrics/WeightedRecall/" class="md-nav__link">
         WeightedRecall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/WrapperMetric/" class="md-nav__link">
+        WrapperMetric
       </a>
     </li>
   
@@ -5050,18 +5134,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tree/BaseHoeffdingTree/" class="md-nav__link">
-        BaseHoeffdingTree
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../api/tree/ExtremelyFastDecisionTreeClassifier/" class="md-nav__link">
         ExtremelyFastDecisionTreeClassifier
       </a>
@@ -6092,38 +6164,20 @@
 </ul>
 <h2 id="factorization-machines">Factorization Machines<a class="headerlink" href="#factorization-machines" title="Permanent link">&para;</a></h2>
 <p>Steffen Rendel came up in 2010 with <a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf">Factorization Machines</a>, an algorithm able to handle any real valued feature vector, combining the advantages of general predictors with factorization models. It became quite popular in the field of online advertising, notably after winning several Kaggle competitions. The modeling technique starts with a linear regression to capture the effects of each variable individually:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}
-</script>
-</div>
-<p>Then are added interaction terms to learn features relations. Instead of learning a single and specific weight per interaction (as in <a href="https://en.wikipedia.org/wiki/Polynomial_regression">polynomial regression</a>), a set of latent factors is learnt per feature (as in MF). An interaction is calculated by multiplying involved features product with their latent vectors dot product. The degree of factorization — or model order — represents the maximum number of features per interaction considered. The model equation for a factorization machine of degree <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> = 2 is defined as:</p>
-<div>
-<div class="MathJax_Preview">
+\]</div>
+<p>Then are added interaction terms to learn features relations. Instead of learning a single and specific weight per interaction (as in <a href="https://en.wikipedia.org/wiki/Polynomial_regression">polynomial regression</a>), a set of latent factors is learnt per feature (as in MF). An interaction is calculated by multiplying involved features product with their latent vectors dot product. The degree of factorization — or model order — represents the maximum number of features per interaction considered. The model equation for a factorization machine of degree <span class="arithmatex">\(d\)</span> = 2 is defined as:</p>
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{j=1}^{p} \sum_{j'=j+1}^{p} \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle x_{j} x_{j'}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{j=1}^{p} \sum_{j'=j+1}^{p} \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle x_{j} x_{j'}
-</script>
-</div>
-<p>Where <span><span class="MathJax_Preview">\normalsize \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle</span><script type="math/tex">\normalsize \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle</script></span> is the dot product of <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> and <span><span class="MathJax_Preview">j'</span><script type="math/tex">j'</script></span> latent vectors:</p>
-<div>
-<div class="MathJax_Preview">
+\]</div>
+<p>Where <span class="arithmatex">\(\normalsize \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle\)</span> is the dot product of <span class="arithmatex">\(j\)</span> and <span class="arithmatex">\(j'\)</span> latent vectors:</p>
+<div class="arithmatex">\[
 \normalsize
 \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle = \sum_{f=1}^{k} \mathbf{v}_{j, f} \cdot \mathbf{v}_{j', f}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle = \sum_{f=1}^{k} \mathbf{v}_{j, f} \cdot \mathbf{v}_{j', f}
-</script>
-</div>
+\]</div>
 <p>Higher-order FM will be covered in a following section, just note that factorization models express their power in sparse settings, which is also where higher-order interactions are hard to estimate.</p>
 <p>Strong emphasis must be placed on feature engineering as it allows FM to mimic most factorization models and significantly impact its performance. High cardinality categorical variables one hot encoding is the most frequent step before feeding the model with data. For more efficiency, <code>river</code> FM implementation considers string values as categorical variables and automatically one hot encode them. FM models have their own module <a href="/api/overview/#facto">river.facto</a>.</p>
 <p>## Mimic Biased Matrix Factorization (BiasedMF)</p>
@@ -6202,7 +6256,7 @@ y = 4.0
 <ol>
 <li>Set-categorical variables</li>
 </ol>
-<p>We have seen that categorical variables are one hot encoded automatically if set to strings, in the other hand, set-categorical variables must be encoded explicitly by the user. A good way of doing so is to assign them a value of <span><span class="MathJax_Preview">1/m</span><script type="math/tex">1/m</script></span>, where <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> is the number of elements of the sample set. It gives the feature a constant "weight" across all samples preserving model's stability. Let's create a routine to encode movies genres this way:</p>
+<p>We have seen that categorical variables are one hot encoded automatically if set to strings, in the other hand, set-categorical variables must be encoded explicitly by the user. A good way of doing so is to assign them a value of <span class="arithmatex">\(1/m\)</span>, where <span class="arithmatex">\(m\)</span> is the number of elements of the sample set. It gives the feature a constant "weight" across all samples preserving model's stability. Let's create a routine to encode movies genres this way:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">split_genres</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">genres</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;genres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="sa">f</span><span class="s1">&#39;genre_</span><span class="si">{</span><span class="n">genre</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">genres</span><span class="p">)</span> <span class="k">for</span> <span class="n">genre</span> <span class="ow">in</span> <span class="n">genres</span><span class="p">}</span>
@@ -6254,24 +6308,18 @@ y = 4.0
 [75,000] MAE: 0.750568, RMSE: 0.951592 – 0:00:37 – 1.93 MB
 [100,000] MAE: 0.75018, RMSE: 0.951622 – 0:00:49 – 2.18 MB
 </code></pre></div>
-<p>Note that using more variables involves factorizing a larger latent space, then increasing the number of latent factors <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> often helps capturing more information.</p>
+<p>Note that using more variables involves factorizing a larger latent space, then increasing the number of latent factors <span class="arithmatex">\(k\)</span> often helps capturing more information.</p>
 <p>Some other feature engineering tips from <a href="https://www.kaggle.com/c/criteo-display-ad-challenge/discussion/10555">3 idiots' winning solution</a> for Kaggle <a href="https://www.kaggle.com/c/criteo-display-ad-challenge">Criteo display ads</a> competition in 2014:</p>
 <ul>
 <li>Infrequent modalities often bring noise and little information, transforming them into a special tag can help</li>
 <li>In some cases, sample-wise normalization seems to make the optimization problem easier to be solved</li>
 </ul>
 <h2 id="higher-order-factorization-machines-hofm">Higher-Order Factorization Machines (HOFM)<a class="headerlink" href="#higher-order-factorization-machines-hofm" title="Permanent link">&para;</a></h2>
-<p>The model equation generalized to any order <span><span class="MathJax_Preview">d \geq 2</span><script type="math/tex">d \geq 2</script></span> is defined as:</p>
-<div>
-<div class="MathJax_Preview">
+<p>The model equation generalized to any order <span class="arithmatex">\(d \geq 2\)</span> is defined as:</p>
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{l=2}^{d} \sum_{j_1=1}^{p} \cdots \sum_{j_l=j_{l-1}+1}^{p} \left(\prod_{j'=1}^{l} x_{j_{j'}} \right) \left(\sum_{f=1}^{k_l} \prod_{j'=1}^{l} v_{j_{j'}, f}^{(l)} \right)
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{l=2}^{d} \sum_{j_1=1}^{p} \cdots \sum_{j_l=j_{l-1}+1}^{p} \left(\prod_{j'=1}^{l} x_{j_{j'}} \right) \left(\sum_{f=1}^{k_l} \prod_{j'=1}^{l} v_{j_{j'}, f}^{(l)} \right)
-</script>
-</div>
+\]</div>
 <div class="highlight"><pre><span></span><code><span class="n">hofm_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="s1">&#39;n_factors&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
@@ -6310,17 +6358,11 @@ y = 4.0
 <p><a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf">Field-aware variant of FM (FFM)</a> improved the original method by adding the notion of "<em>fields</em>". A "<em>field</em>" is a group of features that belong to a specific domain (e.g. the "<em>users</em>" field, the "<em>items</em>" field, or the "<em>movie genres</em>" field).</p>
 <p>FFM restricts itself to pairwise interactions and factorizes separated latent spaces — one per combination of fields (e.g. users/items, users/movie genres, or items/movie genres) — instead of a common one shared by all fields. Therefore, each feature has one latent vector per field it can interact with — so that it can learn the specific effect with each different field.</p>
 <p>The model equation is defined by:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{j=1}^{p} \sum_{j'=j+1}^{p} \langle \mathbf{v}_{j, f_{j'}}, \mathbf{v}_{j', f_{j}} \rangle x_{j} x_{j'}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{j=1}^{p} \sum_{j'=j+1}^{p} \langle \mathbf{v}_{j, f_{j'}}, \mathbf{v}_{j', f_{j}} \rangle x_{j} x_{j'}
-</script>
-</div>
-<p>Where <span><span class="MathJax_Preview">f_j</span><script type="math/tex">f_j</script></span> and <span><span class="MathJax_Preview">f_{j'}</span><script type="math/tex">f_{j'}</script></span> are the fields corresponding to <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> and <span><span class="MathJax_Preview">j'</span><script type="math/tex">j'</script></span> features, respectively.</p>
+\]</div>
+<p>Where <span class="arithmatex">\(f_j\)</span> and <span class="arithmatex">\(f_{j'}\)</span> are the fields corresponding to <span class="arithmatex">\(j\)</span> and <span class="arithmatex">\(j'\)</span> features, respectively.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ffm_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;n_factors&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
     <span class="s1">&#39;weight_optimizer&#39;</span><span class="p">:</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span>
@@ -6353,20 +6395,14 @@ y = 4.0
 [75,000] MAE: 0.749631, RMSE: 0.949418 – 0:00:55 – 4.14 MB
 [100,000] MAE: 0.749776, RMSE: 0.950131 – 0:01:13 – 4.69 MB
 </code></pre></div>
-<p>Note that FFM usually needs to learn smaller number of latent factors <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> than FM as each latent vector only deals with one field.</p>
+<p>Note that FFM usually needs to learn smaller number of latent factors <span class="arithmatex">\(k\)</span> than FM as each latent vector only deals with one field.</p>
 <h2 id="field-weighted-factorization-machines-fwfm">Field-weighted Factorization Machines (FwFM)<a class="headerlink" href="#field-weighted-factorization-machines-fwfm" title="Permanent link">&para;</a></h2>
-<p><a href="https://arxiv.org/abs/1806.03514">Field-weighted Factorization Machines (FwFM)</a> address FFM memory issues caused by its large number of parameters, which is in the order of <em>feature number</em> times <em>field number</em>. As FFM, FwFM is an extension of FM restricted to pairwise interactions, but instead of factorizing separated latent spaces, it learns a specific weight <span><span class="MathJax_Preview">r_{f_j, f_{j'}}</span><script type="math/tex">r_{f_j, f_{j'}}</script></span> for each field combination modelling the interaction strength.</p>
+<p><a href="https://arxiv.org/abs/1806.03514">Field-weighted Factorization Machines (FwFM)</a> address FFM memory issues caused by its large number of parameters, which is in the order of <em>feature number</em> times <em>field number</em>. As FFM, FwFM is an extension of FM restricted to pairwise interactions, but instead of factorizing separated latent spaces, it learns a specific weight <span class="arithmatex">\(r_{f_j, f_{j'}}\)</span> for each field combination modelling the interaction strength.</p>
 <p>The model equation is defined as:</p>
-<div>
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \normalsize
 \hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{j=1}^{p} \sum_{j'=j+1}^{p} r_{f_j, f_{j'}} \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle x_{j} x_{j'}
-</div>
-<script type="math/tex; mode=display">
-\normalsize
-\hat{y}(x) = w_{0} + \sum_{j=1}^{p} w_{j} x_{j}  + \sum_{j=1}^{p} \sum_{j'=j+1}^{p} r_{f_j, f_{j'}} \langle \mathbf{v}_j, \mathbf{v}_{j'} \rangle x_{j} x_{j'}
-</script>
-</div>
+\]</div>
 <div class="highlight"><pre><span></span><code><span class="n">fwfm_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;n_factors&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s1">&#39;weight_optimizer&#39;</span><span class="p">:</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span>
@@ -6470,7 +6506,11 @@ y = 4.0
         })
       </script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../js/version-select.js"></script>
       
