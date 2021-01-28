@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://riverml.xyz/api/ensemble/SRPClassifier/">
       
       <link rel="shortcut icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
         
           
           
@@ -329,7 +329,6 @@
       
       
 
-
   
   
   
@@ -344,7 +343,6 @@
       
       
       
-
 
   
   
@@ -400,7 +398,6 @@
       
       
       
-
 
   
   
@@ -504,7 +501,6 @@
       
       
       
-
 
   
   
@@ -5620,7 +5616,6 @@
       
       
 
-
   
   
   
@@ -5784,7 +5779,6 @@
       
       
 
-
   
   
   
@@ -5827,7 +5821,6 @@
       
       
       
-
 
   
   
@@ -6104,11 +6097,15 @@
 </li>
 <li>
 <p><strong>drift_detector</strong> (<em><a href="../../base/DriftDetector">base.DriftDetector</a></em>) – defaults to <code>None</code></p>
-<p>Drift detector. If <code>None</code>, disables concept drift detection and the background learner.</p>
+<p>Drift detector.</p>
 </li>
 <li>
 <p><strong>warning_detector</strong> (<em><a href="../../base/DriftDetector">base.DriftDetector</a></em>) – defaults to <code>None</code></p>
-<p>Warning detector. If <code>None</code>, disables the background learner and ensemble members are reset if drift is detected.</p>
+<p>Warning detector.</p>
+</li>
+<li>
+<p><strong>disable_detector</strong> (<em>str</em>) – defaults to <code>off</code></p>
+<p>Option to disable drift detectors:<br/> * If <code>'off'</code>, detectors are enabled.<br/> * If <code>'drift'</code>, disables concept drift detection and the background learner.<br/> * If <code>'warning'</code>, disables the background learner and ensemble members are  reset if drift is detected.<br/></p>
 </li>
 <li>
 <p><strong>disable_weighted_vote</strong> (<em>bool</em>) – defaults to <code>False</code></p>
@@ -6120,7 +6117,7 @@
 </li>
 <li>
 <p><strong>seed</strong> – defaults to <code>None</code></p>
-<p>If <code>int</code>, <code>seed</code> is used to seed the random number generator; If <code>RandomState</code>, <code>seed</code> is the random number generator; If <code>None</code>, the random number generator is the <code>RandomState</code> instance used by <code>np.random</code>.</p>
+<p>Random number generator seed for reproducibility.</p>
 </li>
 <li>
 <p><strong>metric</strong> (<em>river.metrics.base.MultiClassMetric</em>) – defaults to <code>None</code></p>
@@ -6130,20 +6127,23 @@
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">synth</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">ensemble</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">tree</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">evaluate</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">metrics</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">dataset</span> <span class="o">=</span> <span class="n">synth</span><span class="o">.</span><span class="n">ConceptDriftStream</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-<span class="o">...</span>                                    <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">SRPClassifier</span><span class="p">(</span>
-<span class="o">...</span>     <span class="n">n_models</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<span class="o">...</span>     <span class="n">seed</span><span class="o">=</span><span class="mi">42</span>
+<span class="o">...</span>                                    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">base_model</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">HoeffdingTreeClassifier</span><span class="p">(</span>
+<span class="o">...</span>     <span class="n">grace_period</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">split_confidence</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+<span class="o">...</span>     <span class="n">nominal_attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;zipcode&#39;</span><span class="p">]</span>
 <span class="o">...</span> <span class="p">)</span>
-
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">SRPClassifier</span><span class="p">(</span>
+<span class="o">...</span>     <span class="n">model</span><span class="o">=</span><span class="n">base_model</span><span class="p">,</span> <span class="n">n_models</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+<span class="o">...</span> <span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">progressive_val_score</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span>
-<span class="n">Accuracy</span><span class="p">:</span> <span class="mf">76.78</span><span class="o">%</span>
+<span class="n">Accuracy</span><span class="p">:</span> <span class="mf">71.17</span><span class="o">%</span>
 </code></pre></div>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <details class="- note"><summary>clone</summary><p>Return a fresh estimator with the same parameters.</p>
@@ -6245,15 +6245,15 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../../assets/javascripts/vendor.53cc9318.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "../../..",
           features: ['navigation.tabs', 'navigation.instant'],
           search: Object.assign({
-            worker: "../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
