@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://riverml.xyz/api/feature-extraction/TFIDF/">
       
       <link rel="shortcut icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
@@ -6225,6 +6225,7 @@ field to access if the string is stored in a dictionary:</p>
 <details class="- note"><summary>clone</summary><p>Return a fresh estimator with the same parameters.</p>
 <p>The clone has the same parameters but has not been updated with any data.  This works by looking at the parameters from the class signature. Each parameter is either  - recursively cloned if it's a River classes. - deep-copied via <code>copy.deepcopy</code> if not.  If the calling object is stochastic (i.e. it accepts a seed parameter) and has not been seeded, then the clone will not be idempotent. Indeed, this method's purpose if simply to return a new instance with the same input parameters.</p>
 </details>
+<details class="- note"><summary>learn_many</summary></details>
 <details class="- note"><summary>learn_one</summary><p>Update with a set of features <code>x</code>.</p>
 <p>A lot of transformers don't actually have to do anything during the <code>learn_one</code> step because they are stateless. For this reason the default behavior of this function is to do nothing. Transformers that however do something during the <code>learn_one</code> can override this method.</p>
 <p><strong>Parameters</strong></p>
@@ -6235,6 +6236,12 @@ field to access if the string is stored in a dictionary:</p>
 <p><em>Transformer</em>:     self</p>
 </details>
 <details class="- note"><summary>process_text</summary></details>
+<details class="- note"><summary>transform_many</summary><p>Transform pandas series of string into term-frequency pandas sparse dataframe.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>X</strong>     (<em>pandas.core.series.Series</em>)    </li>
+</ul>
+</details>
 <details class="- note"><summary>transform_one</summary><p>Transform a set of features <code>x</code>.</p>
 <p><strong>Parameters</strong></p>
 <ul>

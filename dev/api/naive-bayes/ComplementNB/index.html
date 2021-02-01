@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://riverml.xyz/api/naive-bayes/ComplementNB/">
       
       <link rel="shortcut icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
@@ -6158,7 +6158,7 @@
                 
                 <h1 id="complementnb">ComplementNB<a class="headerlink" href="#complementnb" title="Permanent link">&para;</a></h1>
 <p>Naive Bayes classifier for multinomial models.</p>
-<p>The input vector has to contain positive values, such as counts or TF-IDF values.</p>
+<p>Complement Naive Bayes model learns from occurrences between features such as word counts and discrete classes. ComplementNB is suitable for imbalance dataset. The input vector must contain positive values, such as counts or TF-IDF values.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -6202,20 +6202,84 @@
 <span class="kc">True</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba_one</span><span class="p">(</span><span class="s1">&#39;food job meat&#39;</span><span class="p">)</span>
-<span class="p">{</span><span class="s1">&#39;health&#39;</span><span class="p">:</span> <span class="mf">0.779191</span><span class="p">,</span> <span class="s1">&#39;butcher&#39;</span><span class="p">:</span> <span class="mf">0.220808</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;health&#39;</span><span class="p">:</span> <span class="mf">0.9409689355477155</span><span class="p">,</span> <span class="s1">&#39;butcher&#39;</span><span class="p">:</span> <span class="mf">0.05903106445228467</span><span class="p">}</span>
+</code></pre></div>
+<p>You can train the model and make predictions in mini-batch mode using the class methods <code>learn_many</code> and <code>predict_many</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">docs</span> <span class="o">=</span> <span class="p">[</span>
+<span class="o">...</span>     <span class="p">(</span><span class="s1">&#39;food food meat brain&#39;</span><span class="p">,</span> <span class="s1">&#39;health&#39;</span><span class="p">),</span>
+<span class="o">...</span>     <span class="p">(</span><span class="s1">&#39;food meat &#39;</span> <span class="o">+</span> <span class="s1">&#39;kitchen &#39;</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="s1">&#39;job&#39;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;butcher&#39;</span><span class="p">),</span>
+<span class="o">...</span>     <span class="p">(</span><span class="s1">&#39;food food meat job&#39;</span><span class="p">,</span> <span class="s1">&#39;health&#39;</span><span class="p">)</span>
+<span class="o">...</span> <span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">docs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">docs</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">docs</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">feature_extraction</span><span class="o">.</span><span class="n">BagOfWords</span><span class="p">()</span> <span class="o">|</span> <span class="p">(</span><span class="s1">&#39;nb&#39;</span><span class="p">,</span> <span class="n">naive_bayes</span><span class="o">.</span><span class="n">ComplementNB</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">learn_many</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;nb&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">p_class</span><span class="p">(</span><span class="s1">&#39;health&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="kc">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;nb&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">p_class</span><span class="p">(</span><span class="s1">&#39;butcher&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="kc">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;nb&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">p_class_many</span><span class="p">()</span>
+    <span class="n">butcher</span>    <span class="n">health</span>
+<span class="mi">0</span>  <span class="mf">0.333333</span>  <span class="mf">0.666667</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba_one</span><span class="p">(</span><span class="s1">&#39;food job meat&#39;</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;butcher&#39;</span><span class="p">:</span> <span class="mf">0.05903106445228467</span><span class="p">,</span> <span class="s1">&#39;health&#39;</span><span class="p">:</span> <span class="mf">0.9409689355477155</span><span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba_one</span><span class="p">(</span><span class="s1">&#39;Taiwanese Taipei&#39;</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;butcher&#39;</span><span class="p">:</span> <span class="mf">0.3769230769230768</span><span class="p">,</span> <span class="s1">&#39;health&#39;</span><span class="p">:</span> <span class="mf">0.6230769230769229</span><span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">unseen_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+<span class="o">...</span>    <span class="p">[</span><span class="s1">&#39;food job meat&#39;</span><span class="p">,</span> <span class="s1">&#39;Taiwanese Taipei&#39;</span><span class="p">],</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;river&#39;</span><span class="p">,</span> <span class="s1">&#39;rocks&#39;</span><span class="p">])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba_many</span><span class="p">(</span><span class="n">unseen_data</span><span class="p">)</span>
+        <span class="n">butcher</span>    <span class="n">health</span>
+<span class="n">river</span>  <span class="mf">0.059031</span>  <span class="mf">0.940969</span>
+<span class="n">rocks</span>  <span class="mf">0.376923</span>  <span class="mf">0.623077</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_many</span><span class="p">(</span><span class="n">unseen_data</span><span class="p">)</span>
+<span class="n">river</span>    <span class="n">health</span>
+<span class="n">rocks</span>    <span class="n">health</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
 </code></pre></div>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <details class="- note"><summary>clone</summary><p>Return a fresh estimator with the same parameters.</p>
 <p>The clone has the same parameters but has not been updated with any data.  This works by looking at the parameters from the class signature. Each parameter is either  - recursively cloned if it's a River classes. - deep-copied via <code>copy.deepcopy</code> if not.  If the calling object is stochastic (i.e. it accepts a seed parameter) and has not been seeded, then the clone will not be idempotent. Indeed, this method's purpose if simply to return a new instance with the same input parameters.</p>
 </details>
-<details class="- note"><summary>joint_log_likelihood</summary><p>Compute the unnormalized posterior log-likelihood of x.</p>
-<p>The log-likelihood is <code>log P(c) + log P(x|c)</code>.</p>
+<details class="- note"><summary>joint_log_likelihood</summary><p>Computes the joint log likelihood of input features.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong>x</strong>     (<em>dict</em>)    </li>
 </ul>
+<p><strong>Returns</strong></p>
+<p><em>float</em>:     Mapping between classes and joint log likelihood.</p>
 </details>
-<details class="- note"><summary>learn_one</summary><p>Update the model with a set of features <code>x</code> and a label <code>y</code>.</p>
+<details class="- note"><summary>joint_log_likelihood_many</summary><p>Computes the joint log likelihood of input features.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>X</strong>     (<em>pandas.core.frame.DataFrame</em>)    </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p><em>DataFrame</em>:     Input samples joint log likelihood.</p>
+</details>
+<details class="- note"><summary>learn_many</summary><p>Updates the model with a term-frequency or TF-IDF pandas dataframe.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>X</strong>     (<em>pandas.core.frame.DataFrame</em>)    </li>
+<li><strong>y</strong>     (<em>pandas.core.series.Series</em>)    </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>self</p>
+</details>
+<details class="- note"><summary>learn_one</summary><p>Updates the model with a single observation.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong>x</strong>     (<em>dict</em>)    </li>
@@ -6225,6 +6289,15 @@
 <p><em>Classifier</em>:     self</p>
 </details>
 <details class="- note"><summary>p_class</summary></details>
+<details class="- note"><summary>p_class_many</summary></details>
+<details class="- note"><summary>predict_many</summary><p>Predict the labels of a DataFrame <code>X</code>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>X</strong>     (<em>pandas.core.frame.DataFrame</em>)    </li>
+</ul>
+<p><strong>Returns</strong></p>
+<p><em>Series</em>:     Series of predicted labels.</p>
+</details>
 <details class="- note"><summary>predict_one</summary><p>Predict the label of a set of features <code>x</code>.</p>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -6232,6 +6305,12 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p><em>typing.Union[bool, str, int]</em>:     The predicted label.</p>
+</details>
+<details class="- note"><summary>predict_proba_many</summary><p>Return probabilities using the log-likelihoods in mini-batchs setting.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>X</strong>     (<em>pandas.core.frame.DataFrame</em>)    </li>
+</ul>
 </details>
 <details class="- note"><summary>predict_proba_one</summary><p>Return probabilities using the log-likelihoods.</p>
 <p><strong>Parameters</strong></p>
