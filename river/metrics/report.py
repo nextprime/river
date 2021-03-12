@@ -1,7 +1,6 @@
 from .. import utils
 from . import accuracy, base, fbeta, precision, recall
 
-
 class ClassificationReport(base.MultiClassMetric):
     """A report for monitoring a classifier.
 
@@ -125,7 +124,7 @@ class ClassificationReport(base.MultiClassMetric):
                 ),
             ],
             # Support
-            ["", *[str(self.cm.sum_row[c]).rstrip(".0") for c in classes], *[""] * 4],
+            ["", *[self.strip_trailing_zeroes(str(self.cm.sum_row[c])) for c in classes], *[""] * 4],
         ]
 
         # Build the table
@@ -137,3 +136,23 @@ class ClassificationReport(base.MultiClassMetric):
         table += "\n\n" + f"{accuracy:^{width}}"
 
         return table
+
+    @staticmethod
+    def strip_trailing_zeroes(s: str) -> str:
+        parts = s.split('.')
+        len_parts = len(parts)
+        if len_parts > 2:
+            raise ValueError("alleged numeric string has multiple decimal points: %r".format(s))
+        elif len_parts == 0:
+            return s
+        elif len_parts == 1:
+            return s
+        elif len_parts == 2:
+            trailing = parts[1]
+            trailing = trailing.rstrip("0")
+            if len(trailing) > 0:
+                return parts[0] + "." + trailing
+            else:
+                return parts[0]
+        else:
+            raise ValueError("impossible")
