@@ -83,8 +83,9 @@ setuptools.setup(
     install_requires=base_packages,
     extras_require={"dev": dev_packages, "compat": compat_packages, "docs": docs_packages},
     include_package_data=True,
+    exclude_package_data={"river.utils": ["*.c"]},
     zip_safe=False,
-    package_data={"": ["*.pyi"]},
+    package_data={"": ["*.pyi"], "river": ["py.typed"]},
     license="BSD-3",
     classifiers=[
         # Trove classifiers
