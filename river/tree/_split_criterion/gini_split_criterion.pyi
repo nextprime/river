@@ -1,0 +1,9 @@
+from .base_split_criterion import SplitCriterion as SplitCriterion
+from typing import Any
+
+class GiniSplitCriterion(SplitCriterion):
+    def merit_of_split(self, pre_split_dist: Any, post_split_dist: Any): ...
+    @staticmethod
+    def compute_gini(dist: Any, dist_sum_of_weights: Any): ...
+    @staticmethod
+    def range_of_merit(pre_split_dist: Any): ...

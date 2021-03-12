@@ -1,0 +1,9 @@
+from .knn_classifier import KNNClassifier as KNNClassifier
+from river.drift import ADWIN as ADWIN
+from river.utils import dict2numpy as dict2numpy
+from typing import Any
+
+class KNNADWINClassifier(KNNClassifier):
+    adwin: Any = ...
+    def __init__(self, n_neighbors: int = ..., window_size: int = ..., leaf_size: int = ..., p: int = ...) -> None: ...
+    def learn_one(self, x: Any, y: Any): ...

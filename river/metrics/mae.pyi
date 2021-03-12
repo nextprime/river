@@ -1,0 +1,3 @@
+from . import base
+
+class MAE(base.MeanMetric, base.RegressionMetric): ...

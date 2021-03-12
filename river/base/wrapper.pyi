@@ -1,0 +1,3 @@
+import abc
+
+class WrapperMixin(metaclass=abc.ABCMeta): ...

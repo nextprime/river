@@ -1,0 +1,2 @@
+TEXT_INPUT: str
+POSITIVE_INPUT: str

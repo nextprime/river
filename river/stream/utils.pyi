@@ -1,0 +1,3 @@
+from typing import Any
+
+def open_filepath(filepath_or_buffer: Any, compression: Any): ...

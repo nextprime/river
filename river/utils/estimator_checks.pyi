@@ -1,0 +1,3 @@
+from typing import Any
+
+def check_estimator(model: Any) -> None: ...

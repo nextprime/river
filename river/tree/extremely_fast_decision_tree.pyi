@@ -1,0 +1,9 @@
+from ._nodes import EFDTLearningNodeMC as EFDTLearningNodeMC, EFDTLearningNodeNB as EFDTLearningNodeNB, EFDTLearningNodeNBA as EFDTLearningNodeNBA, EFDTSplitNode as EFDTSplitNode
+from ._split_criterion import GiniSplitCriterion as GiniSplitCriterion, HellingerDistanceCriterion as HellingerDistanceCriterion, InfoGainSplitCriterion as InfoGainSplitCriterion
+from .hoeffding_tree_classifier import HoeffdingTreeClassifier as HoeffdingTreeClassifier
+from typing import Any
+
+class ExtremelyFastDecisionTreeClassifier(HoeffdingTreeClassifier):
+    min_samples_reevaluate: Any = ...
+    def __init__(self, grace_period: int=..., max_depth: int=..., min_samples_reevaluate: int=..., split_criterion: str=..., split_confidence: float=..., tie_threshold: float=..., leaf_prediction: str=..., nb_threshold: int=..., nominal_attributes: list=..., attr_obs: str=..., attr_obs_params: dict=..., **kwargs: Any) -> None: ...
+    def learn_one(self, x: Any, y: Any, *, sample_weight: float = ...): ...
