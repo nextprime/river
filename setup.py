@@ -83,6 +83,8 @@ setuptools.setup(
     install_requires=base_packages,
     extras_require={"dev": dev_packages, "compat": compat_packages, "docs": docs_packages},
     include_package_data=True,
+    zip_safe=False,
+    package_data={"": ["*.pyi"]},
     license="BSD-3",
     classifiers=[
         # Trove classifiers
